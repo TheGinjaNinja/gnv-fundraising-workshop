@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fundraising Workshop | Ginger Ninja Ventures</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #EA580D;
+      --primary-hover: #DC4A04;
+      --primary-pale: #FFF7ED;
+      --bg: #FFFFFF;
+      --surface-2: #F4F4F5;
+      --border: #E4E4E7;
+      --text: #0F172A;
+      --text-2: #64748B;
+      --dark: #111827;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 1rem;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+
+    /* Slide sections */
+    section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 24px;
+    }
+
+    .slide-content {
+      max-width: 1000px;
+      width: 100%;
+    }
+
+    /* Backgrounds */
+    .bg-dark {
+      background: var(--dark);
+      color: #FFFFFF;
+    }
+
+    .bg-white {
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    .bg-pale {
+      background: var(--primary-pale);
+      color: var(--text);
+    }
+
+    /* Typography */
+    h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 24px;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 32px;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.3;
+      margin-bottom: 16px;
+    }
+
+    .eyebrow {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--primary);
+      margin-bottom: 16px;
+    }
+
+    .bg-dark .eyebrow {
+      color: var(--primary);
+    }
+
+    .subtitle {
+      font-size: 1.35rem;
+      font-weight: 300;
+      line-height: 1.5;
+      color: var(--text-2);
+    }
+
+    .bg-dark .subtitle {
+      color: #94A3B8;
+    }
+
+    p {
+      margin-bottom: 16px;
+    }
+
+    .text-large {
+      font-size: 1.25rem;
+      line-height: 1.6;
+    }
+
+    .text-muted {
+      color: var(--text-2);
+    }
+
+    .bg-dark .text-muted {
+      color: #94A3B8;
+    }
+
+    .text-primary {
+      color: var(--primary);
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    /* Stat numbers */
+    .stat-value {
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      font-weight: 700;
+      color: var(--primary);
+      line-height: 1.1;
+    }
+
+    .stat-label {
+      font-size: 0.85rem;
+      color: var(--text-2);
+      margin-top: 8px;
+    }
+
+    .bg-dark .stat-label {
+      color: #94A3B8;
+    }
+
+    /* Cards */
+    .card {
+      background: #FFFFFF;
+      border: 1px solid rgba(234, 88, 13, 0.1);
+      border-radius: 12px;
+      padding: 32px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+    }
+
+    .bg-dark .card {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .card-accent {
+      border-left: 4px solid var(--primary);
+    }
+
+    /* Grid layouts */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    @media (min-width: 768px) {
+      .grid-2 {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .grid-3 {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+
+      .grid-4 {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+      }
+    }
+
+    /* Quote */
+    .quote {
+      border-left: 3px solid var(--primary);
+      padding-left: 24px;
+      font-style: italic;
+      color: var(--text-2);
+      font-size: 1.15rem;
+      line-height: 1.6;
+    }
+
+    .bg-dark .quote {
+      color: #94A3B8;
+    }
+
+    /* Reveal text */
+    .reveal-large {
+      font-size: clamp(3rem, 8vw, 6rem);
+      font-weight: 700;
+      color: var(--primary);
+      line-height: 1;
+      margin: 32px 0;
+    }
+
+    .build-line {
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: #94A3B8;
+      margin-bottom: 12px;
+    }
+
+    /* Numbered list */
+    .numbered-item {
+      display: flex;
+      gap: 16px;
+      align-items: baseline;
+      margin-bottom: 16px;
+    }
+
+    .numbered-item .number {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary);
+      min-width: 36px;
+      flex-shrink: 0;
+    }
+
+    .numbered-item .label {
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    .numbered-item .desc {
+      font-size: 0.95rem;
+      color: var(--text-2);
+    }
+
+    /* Two-column comparison */
+    .comparison-good {
+      border-top: 3px solid #16A34A;
+    }
+
+    .comparison-bad {
+      border-top: 3px solid #DC2626;
+    }
+
+    .comparison-good h3 {
+      color: #16A34A;
+    }
+
+    .comparison-bad h3 {
+      color: #DC2626;
+    }
+
+    .bg-dark .comparison-good h3 {
+      color: #4ADE80;
+    }
+
+    .bg-dark .comparison-bad h3 {
+      color: #F87171;
+    }
+
+    .example-item {
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .bg-dark .example-item {
+      border-bottom-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .example-item:last-child {
+      border-bottom: none;
+    }
+
+    /* Timeline items */
+    .timeline-item {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      margin-bottom: 28px;
+    }
+
+    .timeline-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--primary);
+      margin-top: 6px;
+      flex-shrink: 0;
+    }
+
+    .timeline-text {
+      font-size: 1.25rem;
+      line-height: 1.5;
+    }
+
+    /* Source attribution */
+    .source {
+      font-size: 0.75rem;
+      color: var(--text-2);
+      margin-top: 24px;
+    }
+
+    .bg-pale .source {
+      color: var(--text-2);
+    }
+
+    /* Spacing helpers */
+    .mb-sm { margin-bottom: 8px; }
+    .mb-md { margin-bottom: 16px; }
+    .mb-lg { margin-bottom: 24px; }
+    .mb-xl { margin-bottom: 32px; }
+    .mb-2xl { margin-bottom: 48px; }
+    .mt-lg { margin-top: 24px; }
+    .mt-xl { margin-top: 32px; }
+    .mt-2xl { margin-top: 48px; }
+
+    /* Print styles */
+    @media print {
+      section {
+        min-height: auto;
+        page-break-after: always;
+        padding: 40px 24px;
+      }
+
+      .bg-dark {
+        background: #FFFFFF !important;
+        color: var(--text) !important;
+      }
+
+      .bg-dark .subtitle,
+      .bg-dark .text-muted,
+      .bg-dark .quote,
+      .bg-dark .stat-label,
+      .bg-dark .build-line {
+        color: var(--text-2) !important;
+      }
+
+      .bg-dark .card {
+        background: #FFFFFF !important;
+        border-color: var(--border) !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Slide 1: Title -->
+  <section class="bg-dark">
+    <div class="slide-content text-center">
+      <p class="eyebrow">Makerspace Prizren &middot; Swiss EP Pre-Accelerator</p>
+      <h1>Fundraising Workshop</h1>
+      <p class="subtitle mb-xl">Build a Pitch That Lands</p>
+      <p style="font-size: 1.1rem; color: #94A3B8;">
+        Jamie Reynolds<br>
+        <span style="color: var(--primary); font-weight: 600;">Ginger Ninja Ventures</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- Slide 2: Who Am I -->
+  <section class="bg-white">
+    <div class="slide-content">
+      <p class="eyebrow">Your facilitator</p>
+      <h2>3x venture-backed founder</h2>
+      <div class="grid-3 mb-xl">
+        <div class="card card-accent">
+          <h3>Bondcube</h3>
+          <p class="text-muted mb-sm">B2B Fintech, 2012</p>
+        </div>
+        <div class="card card-accent">
+          <h3>NPL Markets</h3>
+          <p class="text-muted mb-sm">B2B Fintech, 2018</p>
+        </div>
+        <div class="card card-accent">
+          <h3>P.S. Bridal</h3>
+          <p class="text-muted mb-sm">B2C Tech, 2022</p>
+        </div>
+      </div>
+      <p class="text-large mb-lg">Raised EUR 10M+. Liquidated one. Grew the others to Series A.</p>
+      <p class="text-large mb-xl">1,000+ founders mentored. 20+ accelerator programmes.</p>
+      <blockquote class="quote">
+        "I have made every stupid mistake you can make. I want to help you avoid them."
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- Slide 3: The Fundraising Reality -->
+  <section class="bg-pale">
+    <div class="slide-content">
+      <p class="eyebrow">The fundraising reality</p>
+      <h2>The Odds</h2>
+      <div class="grid-4 mb-xl">
+        <div class="text-center">
+          <div class="stat-value">2.5%</div>
+          <p class="stat-label">of startups raise from angels</p>
+        </div>
+        <div class="text-center">
+          <div class="stat-value">0.5%</div>
+          <p class="stat-label">of startups raise from VC</p>
+        </div>
+        <div class="text-center">
+          <div class="stat-value">~18%</div>
+          <p class="stat-label">for startups invited to pitch angel groups</p>
+        </div>
+        <div class="text-center">
+          <div class="stat-value">~60%</div>
+          <p class="stat-label">for startups in accelerator programmes</p>
+        </div>
+      </div>
+      <p class="text-large" style="text-align: center; font-weight: 600;">
+        You are in an accelerator. The odds are in your favour.
+      </p>
+      <p class="source text-center">Source: CB Insights</p>
+    </div>
+  </section>
+
+  <!-- Slide 4: What Are Investors Buying? -->
+  <section class="bg-dark">
+    <div class="slide-content text-center">
+      <p class="eyebrow">What are investors buying?</p>
+      <div class="mb-xl">
+        <p class="build-line">Not your product.</p>
+        <p class="build-line">Not your market.</p>
+        <p class="build-line">Not your deck.</p>
+      </div>
+      <div class="reveal-large">You.</div>
+      <p class="subtitle mt-xl" style="max-width: 700px; margin-left: auto; margin-right: auto;">
+        Early-stage investors are buying the founder. Your credibility, your domain expertise, your ability to execute.
+      </p>
+    </div>
+  </section>
+
+  <!-- Slide 5: Investor Psychology -->
+  <section class="bg-white">
+    <div class="slide-content">
+      <p class="eyebrow">Investor psychology</p>
+      <h2>Two forces drive every decision</h2>
+      <div class="grid-2 mb-xl">
+        <div class="card" style="border-top: 3px solid var(--primary);">
+          <h3 style="color: var(--primary);">Greed</h3>
+          <p class="text-large mb-md">"I want to end up on the Midas List."</p>
+          <p class="text-muted">This is what makes them take the meeting.</p>
+        </div>
+        <div class="card" style="border-top: 3px solid var(--text);">
+          <h3>Fear</h3>
+          <p class="text-large mb-md">"I do not want an embarrassing failure on my track record."</p>
+          <p class="text-muted">This is what makes them say no.</p>
+        </div>
+      </div>
+      <div class="text-center">
+        <p class="text-large mb-md" style="font-weight: 600;">
+          The currency of the relationship is <span class="text-primary">TRUST</span>.
+        </p>
+        <p class="text-muted text-large">Built through consistency, specificity, and credibility.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Slide 6: Evidence First, Story Second -->
+  <section class="bg-pale">
+    <div class="slide-content">
+      <p class="eyebrow">The Evidence Grid</p>
+      <h2>Evidence first, story second</h2>
+      <div class="grid-3 mb-xl">
+        <div class="card card-accent">
+          <h3>Key Narrative</h3>
+          <p class="text-muted">What is the claim you are making on this slide?</p>
+        </div>
+        <div class="card card-accent">
+          <h3>Proof Points</h3>
+          <p class="text-muted">What data, quotes, or results back it up?</p>
+        </div>
+        <div class="card card-accent">
+          <h3>So What?</h3>
+          <p class="text-muted">Why should the investor care about this?</p>
+        </div>
+      </div>
+      <p class="text-large text-center mb-md" style="font-weight: 600;">
+        Every slide in your deck needs all three.
+      </p>
+      <p class="text-large text-center text-muted">
+        Get the substance right before you touch the story.
+      </p>
+    </div>
+  </section>
+
+  <!-- Slide 7: The 10-Element Deck -->
+  <section class="bg-white">
+    <div class="slide-content">
+      <p class="eyebrow">Deck structure</p>
+      <h2>The 10-Element Deck</h2>
+      <div class="grid-2">
+        <div>
+          <div class="numbered-item">
+            <span class="number">01</span>
+            <div>
+              <div class="label">Hook</div>
+              <div class="desc">Grab attention in the first 10 seconds</div>
+            </div>
+          </div>
+          <div class="numbered-item">
+            <span class="number">02</span>
+            <div>
+              <div class="label">Problem</div>
+              <div class="desc">The pain point, with evidence it is real</div>
+            </div>
+          </div>
+          <div class="numbered-item">
+            <span class="number">03</span>
+            <div>
+              <div class="label">Solution</div>
+              <div class="desc">Your approach, not a feature list</div>
+            </div>
+          </div>
+          <div class="numbered-item">
+            <span class="number">04</span>
+            <div>
+              <div class="label">Market</div>
+              <div class="desc">Size, growth, and why now</div>
+            </div>
+          </div>
+          <div class="numbered-item">
+            <span class="number">05</span>
+            <div>
+              <div class="label">Product</div>
+              <div class="desc">Show it, do not describe it</div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="numbered-item">
+            <span class="number">06</span>
+            <div>
+              <div class="label">Business Model</div>
+              <div class="desc">How you make money, and unit economics</div>
+            </div>
+          </div>
+          <div class="numbered-item">
+            <span class="number">07</span>
+            <div>
+              <div class="label">Traction</div>
+              <div class="desc">What you have achieved so far</div>
+            </div>
+          </div>
+          <div class="numbered-item">
+            <span class="number">08</span>
+            <div>
+              <div class="label">Team</div>
+              <div class="desc">Why you are the ones to build this</div>
+            </div>
+          </div>
+          <div class="numbered-item">
+            <span class="number">09</span>
+            <div>
+              <div class="label">Vision</div>
+              <div class="desc">Where this goes in 5 years</div>
+            </div>
+          </div>
+          <div class="numbered-item">
+            <span class="number">10</span>
+            <div>
+              <div class="label">The Ask</div>
+              <div class="desc">Specific amount, milestones, and timeline</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Slide 8: Your Story Arc -->
+  <section class="bg-dark">
+    <div class="slide-content">
+      <p class="eyebrow">Narrative frameworks</p>
+      <h2>Your Story Arc</h2>
+      <div class="grid-3 mb-xl">
+        <div class="card">
+          <h3 style="color: var(--primary);">Demo Day Arc</h3>
+          <p style="color: var(--text-2);">The classic. Problem, solution, evidence, ask. Works when your traction speaks for itself.</p>
+        </div>
+        <div class="card">
+          <h3 style="color: var(--primary);">Strategic Narrative</h3>
+          <p style="color: var(--text-2);">Name the shift. Show winners and losers. You are the way forward. Works when the market is changing fast.</p>
+        </div>
+        <div class="card">
+          <h3 style="color: var(--primary);">Market Framing</h3>
+          <p style="color: var(--text-2);">Here is what everyone else is doing wrong. Here is the better way. Works when you have a contrarian insight.</p>
+        </div>
+      </div>
+      <p class="text-large text-center" style="color: #94A3B8;">
+        The evidence tells you which story to tell.
+      </p>
+    </div>
+  </section>
+
+  <!-- Slide 9: The Hook -->
+  <section class="bg-white">
+    <div class="slide-content">
+      <p class="eyebrow">Slide deep dive</p>
+      <h2>The Hook</h2>
+      <div class="grid-2 mb-xl">
+        <div class="card comparison-bad">
+          <h3>Bad Hooks</h3>
+          <div class="example-item">"Hi, I am Arben and this is FieldFlow."</div>
+          <div class="example-item">"Our mission is to digitise trades businesses."</div>
+          <div class="example-item">"Let me start with a quick overview."</div>
+        </div>
+        <div class="card comparison-good">
+          <h3>Good Hooks</h3>
+          <div class="example-item">"Last month, a plumber lost EUR 2,400 because three jobs fell through the cracks of his paper diary."</div>
+          <div class="example-item">"87% of trades businesses have no digital tools. They are losing money every single day."</div>
+          <div class="example-item">"What if invoicing took 30 seconds instead of 3 days?"</div>
+        </div>
+      </div>
+      <blockquote class="quote">
+        If your hook does not make someone look up from their phone, it is not a hook.
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- Slide 10: The Ask -->
+  <section class="bg-pale">
+    <div class="slide-content">
+      <p class="eyebrow">Slide deep dive</p>
+      <h2>The Ask</h2>
+      <div class="grid-2 mb-xl">
+        <div class="card comparison-bad">
+          <h3>Vague Asks</h3>
+          <div class="example-item">"We are looking for strategic partners and investment."</div>
+          <div class="example-item">"We are raising money to grow."</div>
+        </div>
+        <div class="card comparison-good">
+          <h3>Specific Asks</h3>
+          <div class="example-item">"We are raising EUR 150K to reach 50 paying customers in 12 months by hiring one engineer and running pilots in three cities."</div>
+        </div>
+      </div>
+      <p class="text-large text-center" style="font-weight: 600;">
+        Specific amount. Specific milestones. Specific timeline.
+      </p>
+    </div>
+  </section>
+
+  <!-- Slide 11: Demo Day Rules -->
+  <section class="bg-dark">
+    <div class="slide-content">
+      <p class="eyebrow">Demo day</p>
+      <h2>The Rules</h2>
+      <div class="grid-2">
+        <div class="card comparison-good">
+          <h3>Do</h3>
+          <div class="example-item" style="color: var(--text-2);">Hook first. Earn their attention before you explain anything.</div>
+          <div class="example-item" style="color: var(--text-2);">Evidence on every slide. No claim without proof.</div>
+          <div class="example-item" style="color: var(--text-2);">Specific ask. Amount, milestones, timeline.</div>
+          <div class="example-item" style="color: var(--text-2);">Practise 5+ times. Out loud, with a timer.</div>
+          <div class="example-item" style="color: var(--text-2);">Time yourself. Know your pace cold.</div>
+          <div class="example-item" style="color: var(--text-2);">Make eye contact. Talk to people, not screens.</div>
+        </div>
+        <div class="card comparison-bad">
+          <h3>Do Not</h3>
+          <div class="example-item" style="color: var(--text-2);">Start with your logo. Nobody cares yet.</div>
+          <div class="example-item" style="color: var(--text-2);">Read your slides. If you are reading, you are not presenting.</div>
+          <div class="example-item" style="color: var(--text-2);">Apologise. No "we are early" or "this is rough".</div>
+          <div class="example-item" style="color: var(--text-2);">Run over time. It signals you cannot prioritise.</div>
+          <div class="example-item" style="color: var(--text-2);">Show metrics you do not have. Aspirational numbers destroy credibility.</div>
+          <div class="example-item" style="color: var(--text-2);">Feature dump. Investors buy outcomes, not features.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Slide 12: What Happens Next -->
+  <section class="bg-white">
+    <div class="slide-content">
+      <p class="eyebrow">Schedule</p>
+      <h2>What Happens Next</h2>
+      <div style="max-width: 700px;">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-text"><strong>This afternoon:</strong> 1:1 deep dives on your pitch</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-text"><strong>Tomorrow morning:</strong> Practice pitches with feedback</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-text"><strong>Tomorrow afternoon:</strong> Demo Day</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-text"><strong>The repo:</strong> Clone it. The AI coach works 24/7.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-text"><strong>Your outputs:</strong> Yours to keep and share with investors.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Slide 13: Close -->
+  <section class="bg-dark">
+    <div class="slide-content text-center">
+      <h1 style="margin-bottom: 48px;">Go build something<br>people remember.</h1>
+      <p style="font-size: 1.1rem; color: #94A3B8; margin-bottom: 8px;">Jamie Reynolds</p>
+      <p style="color: var(--primary); font-weight: 600; font-size: 1.1rem; margin-bottom: 24px;">Ginger Ninja Ventures</p>
+      <p style="font-size: 0.9rem; color: #64748B;">gingerninjaventures.com</p>
+    </div>
+  </section>
+
+</body>
+</html>
