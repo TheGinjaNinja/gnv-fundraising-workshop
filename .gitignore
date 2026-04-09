@@ -1,0 +1,15 @@
+# Founder outputs (generated per team, not committed)
+outputs/*
+!outputs/.gitkeep
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+.cursor/
+
+# Node (if founders install Claude Code locally)
+node_modules/
