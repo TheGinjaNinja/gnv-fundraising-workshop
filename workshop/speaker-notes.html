@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Speaker Notes | GNV Fundraising Workshop</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 1rem;
+      line-height: 1.7;
+      color: #0F172A;
+      background: #FFFFFF;
+      padding: 0;
+      margin: 0;
+    }
+
+    .header {
+      background: #111827;
+      color: #FFFFFF;
+      padding: 32px 40px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 3px solid #EA580D;
+    }
+
+    .header h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin: 0;
+    }
+
+    .header p {
+      font-size: 0.875rem;
+      color: #94A3B8;
+      margin-top: 4px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 24px 32px 80px;
+    }
+
+    .slide-section {
+      border-bottom: 1px solid #E4E4E7;
+      padding: 32px 0;
+    }
+
+    .slide-section:last-of-type {
+      border-bottom: none;
+    }
+
+    .slide-header {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .slide-number {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #EA580D;
+      white-space: nowrap;
+      min-width: 70px;
+    }
+
+    .slide-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: #0F172A;
+    }
+
+    .slide-timing {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #FFFFFF;
+      background: #EA580D;
+      padding: 2px 10px;
+      border-radius: 9999px;
+      white-space: nowrap;
+      margin-left: auto;
+    }
+
+    .slide-body {
+      padding-left: 86px;
+    }
+
+    .note {
+      margin-bottom: 12px;
+      color: #0F172A;
+    }
+
+    .say {
+      background: #FFF7ED;
+      border-left: 3px solid #EA580D;
+      padding: 10px 16px;
+      margin: 12px 0;
+      border-radius: 0 8px 8px 0;
+      font-style: italic;
+      color: #0F172A;
+    }
+
+    .say::before {
+      content: "Say:";
+      display: block;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #EA580D;
+      margin-bottom: 4px;
+    }
+
+    .discussion {
+      background: #ECFDF5;
+      border-left: 3px solid #059669;
+      padding: 10px 16px;
+      margin: 12px 0;
+      border-radius: 0 8px 8px 0;
+      color: #0F172A;
+    }
+
+    .discussion::before {
+      content: "Discussion prompt:";
+      display: block;
+      font-weight: 600;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #059669;
+      margin-bottom: 4px;
+    }
+
+    .story {
+      background: #F5F3FF;
+      border-left: 3px solid #7C3AED;
+      padding: 10px 16px;
+      margin: 12px 0;
+      border-radius: 0 8px 8px 0;
+      color: #0F172A;
+    }
+
+    .story::before {
+      content: "Story:";
+      display: block;
+      font-weight: 600;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #7C3AED;
+      margin-bottom: 4px;
+    }
+
+    .key-point {
+      font-weight: 600;
+    }
+
+    ul {
+      padding-left: 20px;
+      margin: 8px 0;
+    }
+
+    li {
+      margin-bottom: 6px;
+    }
+
+    .timing-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 24px;
+      font-size: 0.9rem;
+    }
+
+    .timing-table th {
+      background: #111827;
+      color: #FFFFFF;
+      padding: 10px 16px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .timing-table td {
+      padding: 8px 16px;
+      border-bottom: 1px solid #E4E4E7;
+    }
+
+    .timing-table tr:nth-child(even) {
+      background: #F4F4F5;
+    }
+
+    .timing-table tfoot td {
+      font-weight: 700;
+      background: #FFF7ED;
+      border-top: 2px solid #EA580D;
+    }
+
+    .footer-note {
+      margin-top: 32px;
+      padding: 20px 24px;
+      background: #F4F4F5;
+      border-radius: 12px;
+      font-size: 0.9rem;
+      color: #64748B;
+    }
+
+    @media print {
+      .header {
+        position: static;
+        background: #FFFFFF;
+        color: #0F172A;
+        border-bottom: 2px solid #0F172A;
+      }
+
+      .header p {
+        color: #64748B;
+      }
+
+      .slide-section {
+        page-break-inside: avoid;
+      }
+
+      .say, .discussion, .story {
+        border-left-width: 2px;
+      }
+
+      body {
+        font-size: 0.9rem;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        padding: 16px 20px 60px;
+      }
+
+      .slide-body {
+        padding-left: 0;
+        margin-top: 8px;
+      }
+
+      .slide-header {
+        flex-wrap: wrap;
+      }
+
+      .slide-timing {
+        margin-left: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Speaker Notes</h1>
+  <p>GNV Fundraising Workshop / Wednesday AM Group Session / Total: ~60 minutes</p>
+</div>
+
+<div class="container">
+
+  <!-- Slide 1 -->
+  <div class="slide-section">
+    <div class="slide-header">
+      <span class="slide-number">Slide 1</span>
+      <span class="slide-title">Title</span>
+      <span class="slide-timing">0:30</span>
+    </div>
+    <div class="slide-body">
+      <div class="say">Welcome everyone. Quick intro, then straight into it.</div>
+      <p class="note">Keep this tight. No preamble. Let the room settle, make eye contact, then go.</p>
+    </div>
+  </div>
+
+  <!-- Slide 2 -->
+  <div class="slide-section">
+    <div class="slide-header">
+      <span class="slide-number">Slide 2</span>
+      <span class="slide-title">Who Am I</span>
+      <span class="slide-timing">2:00</span>
+    </div>
+    <div class="slide-body">
+      <p class="note">Credibility, not CV. Two stories, then move on.</p>
+      <div class="story">
+        <strong>Bondcube.</strong> Raised EUR 10M. My co-founder had 15 years in bond trading. That credibility was worth more than any deck we ever built. Investors backed the person, not the slides.
+      </div>
+      <div class="story">
+        <strong>P.S. Bridal.</strong> The founder personally experienced the problem. Investors could see she would not quit. That conviction is something you cannot fake.
+      </div>
+      <div class="say">I have sat where you are sitting. I have also sat on the other side of the table.</div>
+      <p class="note">Pause after this line. Let it land. Then transition to the reality slide.</p>
+    </div>
+  </div>
+
+  <!-- Slide 3 -->
+  <div class="slide-section">
+    <div class="slide-header">
+      <span class="slide-number">Slide 3</span>
+      <span class="slide-title">Fundraising Reality</span>
+      <span class="slide-timing">3:00</span>
+    </div>
+    <div class="slide-body">
+      <div class="say">These stats are sobering. But you are here, in an accelerator. That changes everything.</div>
+      <div class="discussion">How many of you have pitched to an investor before?</div>
+      <p class="note">Show of hands. Use this to calibrate the room. If most have pitched before, you can move faster through fundamentals. If most have not, slow down on the evidence and story arc slides.</p>
+      <p class="note">The 60% success rate through accelerators is the key stat. They are in the right place. Emphasise this. It reframes the scary numbers into something actionable.</p>
+    </div>
+  </div>
+
+  <!-- Slide 4 -->
+  <div class="slide-section">
+    <div class="slide-header">
+      <span class="slide-number">Slide 4</span>
+      <span class="slide-title">What Are Investors Buying?</span>
+      <span class="slide-timing">3:00</span>
+    </div>
+    <div class="slide-body">
+      <div class="story">
+        <strong>WeWork / Adam Neumann.</strong> WeWork raised $12B, reached a $47B valuation, then liquidated. Then a16z invested $350M in Adam Neumann's next real estate startup, Flow. Their largest single investment ever. Let that sink in. VCs are not always rational. They are buying the founder.
+      </div>
+      <div class="say">VCs are not always rational. They are buying the founder. Build trust.</div>
+      <div class="discussion">What do you think investors are most afraid of?</div>
+      <p class="note">Let a few people answer. Common responses: losing money, picking the wrong team, missing a trend. Acknowledge all of them, then use them to bridge into investor psychology on the next slide.</p>
+    </div>
+  </div>
+
+  <!-- Slide 5 -->
+  <div class="slide-section">
+    <div class="slide-header">
+      <span class="slide-number">Slide 5</span>
+      <span class="slide-title">Investor Psychology</span>
+      <span class="slide-timing">2:00</span>
+    </div>
+    <div class="slide-body">
+      <p class="note">Quick explanation of the greed vs fear dynamic. Do not over-explain. Two emotions, two signals.</p>
+      <div class="say">Every signal you send either activates catching (excitement about getting in early) or missing (anxiety about being left behind).</div>
+      <p class="note">Trust is built through three things:</p>
+      <ul>
+        <li><span class="key-point">Consistency</span> - monthly updates, keeping your word</li>
+        <li><span class="key-point">Specificity</span> - exact numbers, precise language</li>
+        <li><span class="key-point">Credibility</span> - domain expertise, strong references</li>
+      </ul>
+      <p class="note">Move quickly here. This is context for what comes next, not a deep dive.</p>
+    </div>
+  </div>
+
+  <!-- Slide 6 -->
+  <div class="slide-section">
+    <div class="slide-header">
+      <span class="slide-number">Slide 6</span>
+      <span class="slide-title">Evidence Grid</span>
+      <span class="slide-timing">5:00</span>
+    </div>
+    <div class="slide-body">
+      <div class="say">Before we touch storytelling, we need substance.</div>
+      <p class="note key-point">This is the most interactive slide. Spend time here.</p>
+      <p class="note">Live exercise: ask one team to share their problem statement. Apply the Evidence Grid live on the spot.</p>
+      <div class="discussion">What is the evidence for this? What would a sceptical investor say?</div>
+      <p class="note">Walk through the three columns: key narrative, proof points, the "so what." Show how a vague claim becomes a strong slide when you add real evidence.</p>
+      <p class="note">If the room is engaged, take a second example from another team. If time is tight, keep to one.</p>
+    </div>
+  </div>
+
+  <!-- Slide 7 -->
+  <div class="slide-section">
+    <div class="slide-header">
+      <span class="slide-number">Slide 7</span>
+      <span class="slide-title">10-Element Deck</span>
+      <span class="slide-timing">5:00</span>
+    </div>
+    <div class="slide-body">
+      <p class="note">Walk through each element briefly. Do not linger on any single one.</p>
+      <ul>
+        <li>Hook / Opening</li>
+        <li>Problem</li>
+        <li>Solution</li>
+        <li>Market</li>
+        <li>Traction</li>
+        <li>Business Model</li>
+        <li>Competition</li>
+        <li>Team</li>
+        <li>The Ask</li>
+        <li>Vision / Close</li>
+      </ul>
+      <div class="say">Most decks fail on slide 1 (no hook) and slide 10 (vague ask). The hook and the ask are the bookends. Everything else is the evidence in between.</div>
+      <p class="note">Emphasise that this is not a rigid template. The structure holds but the exact slide count per element varies. Some elements are one slide, some are two or three.</p>
+    </div>
+  </div>
+
+  <!-- Slide 8 -->
+  <div class="slide-section">
+    <div class="slide-header">
+      <span class="slide-number">Slide 8</span>
+      <span class="slide-title">Story Arc</span>
+      <span class="slide-timing">5:00</span>
+    </div>
+    <div class="slide-body">
+      <p class="note">Brief explanation of each framework. Connect each one to the type of evidence a founder has.</p>
+      <div class="say">The evidence tells you which story to tell.</div>
+      <ul>
+        <li><span class="key-point">Hair on Fire</span> = Demo Day Arc. The problem is urgent, the evidence is strong, tell it simply.</li>
+        <li><span class="key-point">Hard Fact</span> = reframe with Market Framing. The data tells the story.</li>
+        <li><span class="key-point">Future Vision</span> = Raskin Strategic Narrative. Name the shift, show winners and losers.</li>
+      </ul>
+      <div class="say">For most of you, the Demo Day Arc is the right choice. It is the simplest and most effective for a 3-5 minute pitch.</div>
+      <p class="note">Only mention Raskin and Duarte briefly. Most teams will use the Demo Day Arc. Do not overwhelm them with frameworks.</p>
+    </div>
+  </div>
+
+  <!-- Slide 9 -->
+  <div class="slide-section">
+    <div class="slide-header">
+      <span class="slide-number">Slide 9</span>
+      <span class="slide-title">The Hook</span>
+      <span class="slide-timing">3:00</span>
+    </div>
+    <div class="slide-body">
+      <p class="note">Read the bad hooks out loud. Pause. Let the room react. Then read the good hooks.</p>
+      <div class="say">Feel the difference?</div>
+      <div class="say">Your first line is the most important line in your entire pitch. If you lose them in the first 10 seconds, you never get them back.</div>
+      <p class="note">If time allows, ask one or two founders to share their current opening line. Give quick feedback. This gets the room thinking about their own hooks before the 1:1 sessions.</p>
+    </div>
+  </div>
+
+  <!-- Slide 10 -->
+  <div class="slide-section">
+    <div class="slide-header">
+      <span class="slide-number">Slide 10</span>
+      <span class="slide-title">The Ask</span>
+      <span class="slide-timing">2:00</span>
+    </div>
+    <div class="slide-body">
+      <div class="say">Specific amount. Specific milestones. Specific timeline.</div>
+      <div class="say">If you cannot say exactly what the money buys in one sentence, you are not ready to ask for it.</div>
+      <p class="note">This is a gut-check moment. Keep it punchy. No extended discussion needed. The point should land immediately.</p>
+    </div>
+  </div>
+
+  <!-- Slide 11 -->
+  <div class="slide-section">
+    <div class="slide-header">
+      <span class="slide-number">Slide 11</span>
+      <span class="slide-title">Demo Day Rules</span>
+      <span class="slide-timing">2:00</span>
+    </div>
+    <div class="slide-body">
+      <p class="note">Quick hits through the list. Read them with energy.</p>
+      <div class="say">Never start with your logo. Never end without an ask.</div>
+      <div class="say">If you have not done 5 run-throughs, you have not practised.</div>
+      <p class="note">Do not elaborate on each rule individually. Let the slide speak. The rules are self-explanatory. Your delivery speed here signals that these are non-negotiable basics, not topics for debate.</p>
+    </div>
+  </div>
+
+  <!-- Slide 12 -->
+  <div class="slide-section">
+    <div class="slide-header">
+      <span class="slide-number">Slide 12</span>
+      <span class="slide-title">What Happens Next</span>
+      <span class="slide-timing">3:00</span>
+    </div>
+    <div class="slide-body">
+      <p class="note">Repo walkthrough. Open the repo on screen if possible.</p>
+      <ul>
+        <li>Show how to clone the repo</li>
+        <li>Show the CLAUDE.md file and explain it is their AI coach</li>
+        <li>Show the FieldFlow worked example so they know what good looks like</li>
+      </ul>
+      <p class="note">Explain the 1:1 schedule for the afternoon. Each team gets a slot.</p>
+      <div class="say">The AI coach does not sleep. Use it tonight. I am available today and tomorrow morning.</div>
+      <p class="note">Make sure every team knows how to access the repo before you move on. Ask for a quick thumbs up.</p>
+    </div>
+  </div>
+
+  <!-- Slide 13 -->
+  <div class="slide-section">
+    <div class="slide-header">
+      <span class="slide-number">Slide 13</span>
+      <span class="slide-title">Close</span>
+      <span class="slide-timing">1:00</span>
+    </div>
+    <div class="slide-body">
+      <div class="say">Go build something people remember.</div>
+      <p class="note">Hold the silence for a beat. Then open for questions. Keep Q&A to 5 minutes maximum. If a question is specific to one team, defer it to the 1:1 session.</p>
+    </div>
+  </div>
+
+  <!-- Timing Summary -->
+  <div class="slide-section" style="padding-top: 48px;">
+    <h2 style="font-size: 1.25rem; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 16px;">Timing Summary</h2>
+    <table class="timing-table">
+      <thead>
+        <tr>
+          <th>Slide</th>
+          <th>Title</th>
+          <th style="text-align: right;">Minutes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>Title</td><td style="text-align: right;">0.5</td></tr>
+        <tr><td>2</td><td>Who Am I</td><td style="text-align: right;">2</td></tr>
+        <tr><td>3</td><td>Fundraising Reality</td><td style="text-align: right;">3</td></tr>
+        <tr><td>4</td><td>What Are Investors Buying?</td><td style="text-align: right;">3</td></tr>
+        <tr><td>5</td><td>Investor Psychology</td><td style="text-align: right;">2</td></tr>
+        <tr><td>6</td><td>Evidence Grid</td><td style="text-align: right;">5</td></tr>
+        <tr><td>7</td><td>10-Element Deck</td><td style="text-align: right;">5</td></tr>
+        <tr><td>8</td><td>Story Arc</td><td style="text-align: right;">5</td></tr>
+        <tr><td>9</td><td>The Hook</td><td style="text-align: right;">3</td></tr>
+        <tr><td>10</td><td>The Ask</td><td style="text-align: right;">2</td></tr>
+        <tr><td>11</td><td>Demo Day Rules</td><td style="text-align: right;">2</td></tr>
+        <tr><td>12</td><td>What Happens Next</td><td style="text-align: right;">3</td></tr>
+        <tr><td>13</td><td>Close</td><td style="text-align: right;">1</td></tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="2">Presentation total</td>
+          <td style="text-align: right;">36.5</td>
+        </tr>
+        <tr>
+          <td colspan="2">Q&A + buffer</td>
+          <td style="text-align: right;">~23.5</td>
+        </tr>
+        <tr>
+          <td colspan="2">Session total</td>
+          <td style="text-align: right;">60</td>
+        </tr>
+      </tfoot>
+    </table>
+
+    <div class="footer-note">
+      Timing is approximate. The Evidence Grid (Slide 6) is the flex point. If the room is highly interactive, compress Story Arc and Demo Day Rules. If the room is quieter, spend more time on the live exercise and discussion prompts.
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
