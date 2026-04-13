@@ -45,4 +45,4 @@ AI coaching costs approximately $0.25-5.00 USD per session depending on depth.
 
 ## Credits
 
-Built by Jamie Reynolds, Ginger Ninja Ventures. Based on the Startup Operating Model and 14+ years of founder coaching.
+Built by [Jamie Reynolds](https://www.linkedin.com/in/jamie-s-a-reynolds/), [Ginger Ninja Ventures](https://www.gingerninjaventures.com). Based on the [Startup Operating Model](https://www.gingerninjaventures.com/operating-model) and 14+ years of founder coaching.
