@@ -350,6 +350,8 @@ For the full fundraising playbook, see the Startup Operating Model by Jamie Reyn
 
 ```
 gnv-fundraising-workshop/
+├── README.md                    # Project overview and getting started
+├── SETUP.md                     # Installation and setup options
 ├── CLAUDE.md                    # This file. AI coaching instructions.
 ├── knowledge/
 │   ├── pitch-narrative.md       # Exercise 1 knowledge base
@@ -358,7 +360,7 @@ gnv-fundraising-workshop/
 │   └── demo-day-prep.md         # Exercise 4 knowledge base
 ├── examples/example-startup/    # Worked example (FieldFlow AgTech)
 ├── examples/ginger-bread/       # Worked example (Ginger Bread AI CFO)
-├── low-tech/                    # PPTX/XLSX templates for non-Claude users
+├── low-tech/                    # PPTX/XLSX templates + AI prompts file
 ├── workshop/                    # Keynote presentation and speaker notes
 └── outputs/                     # Founder deliverables go here
     ├── pitch-deck.html          # PRIMARY: visual pitch deck (presenting deck)
