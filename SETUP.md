@@ -25,11 +25,12 @@ Works with Cursor, GitHub Copilot, Windsurf, or ChatGPT.
 1. Copy the CLAUDE.md content into your system prompt or project instructions.
 2. Upload the knowledge files as context.
 
-## Option 4: No AI (templates only)
+## Option 4: Templates + AI Prompts (no installation)
 
 1. Download the files from `/low-tech/`.
-2. Work through the structured templates in PowerPoint/Excel.
-3. AI prompts are included in the speaker notes for pasting into ChatGPT if needed.
+2. Open `AI-PROMPTS.md` and copy the prompt for your exercise.
+3. Paste it into ChatGPT, Claude, or any AI tool and start the conversation.
+4. Use the PowerPoint/Excel templates alongside the AI to capture your answers.
 
 ## Cost
 

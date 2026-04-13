@@ -12,9 +12,9 @@ A pitch and fundraising workshop by Ginger Ninja Ventures. Four exercises take y
 
 Clone the repo, open it in Claude Code (or Cursor/Copilot). The CLAUDE.md file coaches you through each exercise conversationally. Outputs are saved to `/outputs/`. See [SETUP.md](SETUP.md) for installation help.
 
-### Track 2: Templates
+### Track 2: Templates + AI Prompts
 
-Download the files from `/low-tech/`. Work through the structured templates in PowerPoint/Excel. No terminal needed.
+Download the files from `/low-tech/`. Open `AI-PROMPTS.md`, copy the prompt for your exercise, and paste it into ChatGPT or Claude. Use the PowerPoint/Excel templates alongside the AI conversation to capture your answers. No terminal needed.
 
 ## Exercises
 
