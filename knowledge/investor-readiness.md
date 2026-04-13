@@ -186,7 +186,7 @@ Understand what drives investment decisions at the emotional level.
 
 Demo day sits within a broader fundraising process. Understand the full picture.
 
-1. **Prepare (50% of effort):** Build the deck, refine the narrative, gather evidence, create the data room, build the target investor list. This is where most of the work happens. Demo day falls within this phase.
+1. **Prepare (50% of effort):** Build the deck, refine the narrative, prepare your proof points, create the data room, build the target investor list. This is where most of the work happens. Demo day falls within this phase.
 2. **Build Network (20%):** Get warm introductions, attend events, build relationships with investors before you need their money. Start this months before you plan to raise.
 3. **Calendar Density (20%):** Compress your investor meetings into the tightest possible window. Momentum creates urgency. Urgency creates competition. Competition improves terms.
 4. **Close (10%):** Convert soft commits to term sheets. Negotiate terms. Complete due diligence. Sign documents.
