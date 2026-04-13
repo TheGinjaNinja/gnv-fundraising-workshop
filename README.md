@@ -26,9 +26,14 @@ Download the files from `/low-tech/`. Work through the structured templates in P
 
 4. **Demo Day Prep**. Practice, timing, delivery. Rehearse your pitch with feedback on pacing, clarity, and stage presence.
 
-## Worked example
+## Worked examples
 
-See `/examples/example-startup/` for a completed set of exercises showing what done looks like.
+Two completed examples show what done looks like:
+
+- **FieldFlow** (`/examples/example-startup/`) - mobile-first job management for trades businesses. Full set of all 4 exercises.
+- **Ginger Bread** (`/examples/ginger-bread/`) - AI-powered CFO for SMEs. Pitch narrative, visual pitch deck, and workshop summary.
+
+Open `/examples/index.html` in a browser to browse them.
 
 ## Bring your own deck
 
