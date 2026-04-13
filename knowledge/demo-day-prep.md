@@ -2,7 +2,7 @@
 
 **Purpose:** Polish your pitch until it is sharp, timed, and confident.
 
-You have the evidence (Exercise 1), the deck (Exercise 2), and an honest view of your readiness (Exercise 3). Now make the delivery excellent. A great story told badly is a wasted opportunity. This exercise is about repetition, refinement, and ruthless editing until every second of your pitch earns its place.
+You have the pitch narrative (Exercise 1), the deck (Exercise 2), and an honest view of your readiness (Exercise 3). Now make the delivery excellent. A great story told badly is a wasted opportunity. This exercise is about repetition, refinement, and ruthless editing until every second of your pitch earns its place.
 
 ---
 

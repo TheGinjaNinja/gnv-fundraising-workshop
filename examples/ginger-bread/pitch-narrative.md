@@ -9,7 +9,7 @@
 
 ---
 
-## Phase 1: Evidence Grid
+## Phase 1: Pitch Substance
 
 ### Summary Statistics
 
@@ -234,7 +234,7 @@ Not head-to-head with Xero or QuickBooks (accounting tools, not CFO thinking). N
 **Market Framing:** AI has made it possible to deliver CFO-grade thinking at software prices for the first time. The timing is now because LLMs + open banking APIs make this buildable by a domain expert. Two years ago this product was impossible. Two years from now someone else will have built it.
 
 **Frameworks Applied:**
-- Evidence Grid (Jamie Reynolds)
+- Pitch Substance (Jamie Reynolds)
 - Say-Do Gap
 - Mom Test (Rob Fitzpatrick)
 - Sequoia PMF Archetypes
@@ -266,7 +266,7 @@ Merge Market + Business Model into one "here is where we are" beat. Compress Pro
 
 ---
 
-## Validation Backlog (Priority Order)
+## Pitch Preparation Backlog (Priority Order)
 
 1. **5 pilot conversations** - show prototype to 5 B2B SaaS founders in the sweet spot. Ask if they would pay GBP 149/month. Ask for pilot commitment. (Upgrades Traction from Moderate to Strong)
 2. **Incorporate the company** - cannot raise SEIS without a UK limited company. Do this immediately.

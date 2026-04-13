@@ -60,7 +60,7 @@ Score yourself 1-5 on each dimension. Be honest. A low score is not a problem if
 
 ### Scoring Guide
 
-- **Below 20:** Significant gaps to address before raising. Focus on validation and evidence-gathering.
+- **Below 20:** Significant gaps to address before raising. Focus on strengthening the weakest areas.
 - **20-30:** Fundable, but expect a hard negotiation. Know your weak spots and have a plan to address them.
 - **30+:** Strong position. Focus on finding the right investors and telling a compelling story.
 
@@ -76,7 +76,7 @@ Not all traction is equal. Investors pattern-match on signals. Know which tier y
 - "Great team" with no relevant domain experience
 - "In talks" with a fund but no commitment
 - Mockup, MVP, or waitlist with no engagement data
-- Patent pending without product-market validation
+- Patent pending without commercial traction
 - "I am an inventor" without commercial traction
 - These signals might get you a meeting. They will not close a round.
 

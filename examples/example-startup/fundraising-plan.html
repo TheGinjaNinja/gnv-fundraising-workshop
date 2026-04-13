@@ -1,0 +1,1137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FieldFlow Fundraising Plan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #EA580D;
+            --primary-hover: #DC4A04;
+            --primary-pale: #FFF7ED;
+            --bg: #FFFFFF;
+            --surface-2: #F4F4F5;
+            --border: #E4E4E7;
+            --text: #0F172A;
+            --text-2: #64748B;
+            --text-3: #94A3B8;
+            --dark: #111827;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--bg);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 220px;
+            height: 100vh;
+            background: var(--dark);
+            padding: 32px 16px 24px;
+            overflow-y: auto;
+            z-index: 100;
+        }
+
+        .sidebar-brand {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 32px;
+            padding: 0 8px;
+        }
+
+        .sidebar nav a {
+            display: block;
+            padding: 8px 12px;
+            color: var(--text-3);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            border-radius: 6px;
+            margin-bottom: 2px;
+            transition: color 0.2s, background 0.2s;
+        }
+
+        .sidebar nav a:hover {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .sidebar nav a.active {
+            color: var(--primary);
+            background: rgba(234, 88, 13, 0.08);
+        }
+
+        /* Mobile nav */
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--dark);
+            z-index: 100;
+            padding: 12px 16px;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+
+        .mobile-nav a {
+            display: inline-block;
+            padding: 6px 12px;
+            color: var(--text-3);
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 500;
+            border-radius: 6px;
+        }
+
+        .mobile-nav a:hover {
+            color: #fff;
+        }
+
+        .mobile-nav a.active {
+            color: var(--primary);
+        }
+
+        /* Main content */
+        .main {
+            margin-left: 220px;
+        }
+
+        /* Sections */
+        .section {
+            padding: 64px 24px;
+        }
+
+        .section-inner {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .section-white {
+            background: var(--bg);
+        }
+
+        .section-surface {
+            background: var(--surface-2);
+        }
+
+        /* Hero / Overview */
+        .hero {
+            background: var(--dark);
+            padding: 80px 24px;
+        }
+
+        .hero .section-inner {
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            color: #fff;
+            margin-bottom: 12px;
+        }
+
+        .hero .tagline {
+            font-size: 1.15rem;
+            color: var(--text-3);
+            margin-bottom: 32px;
+            font-weight: 400;
+        }
+
+        .hero .meta-row {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            flex-wrap: wrap;
+            margin-bottom: 24px;
+        }
+
+        .hero .meta-item {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .hero .meta-item strong {
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .hero .credit {
+            font-size: 0.75rem;
+            color: var(--text-3);
+            margin-top: 8px;
+        }
+
+        .hero .credit a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        /* Typography */
+        h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            color: var(--text);
+            margin-bottom: 24px;
+        }
+
+        h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 12px;
+        }
+
+        .eyebrow {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        p {
+            margin-bottom: 16px;
+            color: var(--text-2);
+        }
+
+        /* Cards */
+        .card {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            padding: 24px;
+            margin-bottom: 16px;
+        }
+
+        .card-accent {
+            border-left: 4px solid var(--primary);
+        }
+
+        .card h3 {
+            margin-bottom: 8px;
+        }
+
+        .card p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Status badges */
+        .badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            vertical-align: middle;
+        }
+
+        .badge-complete {
+            color: #059669;
+            background: #ECFDF5;
+        }
+
+        .badge-in-progress {
+            color: #D97706;
+            background: #FFFBEB;
+        }
+
+        .badge-not-started {
+            color: #6B7280;
+            background: #F3F4F6;
+        }
+
+        /* Pitch readiness badges */
+        .badge-strong {
+            color: #059669;
+            background: #ECFDF5;
+        }
+
+        .badge-moderate {
+            color: #D97706;
+            background: #FFFBEB;
+        }
+
+        .badge-weak {
+            color: #EA580D;
+            background: #FFF7ED;
+        }
+
+        .badge-assumption {
+            color: #6B7280;
+            background: #F3F4F6;
+        }
+
+        /* Tables */
+        .table-wrap {
+            overflow-x: auto;
+            margin-bottom: 16px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+
+        th {
+            text-align: left;
+            padding: 10px 12px;
+            font-weight: 600;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-2);
+            border-bottom: 2px solid var(--border);
+        }
+
+        td {
+            padding: 10px 12px;
+            border-bottom: 1px solid var(--border);
+            color: var(--text);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Lists */
+        ul, ol {
+            margin-bottom: 16px;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 6px;
+            color: var(--text-2);
+        }
+
+        /* Email template */
+        .email-template {
+            background: #fafafa;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 16px;
+            font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+            font-size: 0.85rem;
+            line-height: 1.7;
+            white-space: pre-wrap;
+            color: var(--text);
+        }
+
+        .email-template .subject-line {
+            font-weight: 600;
+            margin-bottom: 16px;
+            font-family: 'Inter', sans-serif;
+            color: var(--text);
+        }
+
+        /* Phase cards */
+        .phase-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .phase-card {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: centre;
+        }
+
+        .phase-card .phase-number {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 4px;
+        }
+
+        .phase-card h3 {
+            font-size: 1rem;
+            margin-bottom: 8px;
+        }
+
+        /* Checklist */
+        .checklist {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .checklist li {
+            padding: 8px 0;
+            padding-left: 28px;
+            position: relative;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .checklist li:last-child {
+            border-bottom: none;
+        }
+
+        .checklist li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 12px;
+            width: 16px;
+            height: 16px;
+            border: 2px solid var(--border);
+            border-radius: 4px;
+        }
+
+        /* Deck link */
+        .deck-link {
+            display: inline-block;
+            padding: 8px 16px;
+            background: var(--primary);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+
+        .deck-link:hover {
+            background: var(--primary-hover);
+        }
+
+        /* Spacing helpers */
+        .mb-8 { margin-bottom: 8px; }
+        .mb-16 { margin-bottom: 16px; }
+        .mb-24 { margin-bottom: 24px; }
+        .mb-32 { margin-bottom: 32px; }
+        .mb-48 { margin-bottom: 48px; }
+        .mt-16 { margin-top: 16px; }
+        .mt-24 { margin-top: 24px; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .sidebar {
+                display: none;
+            }
+
+            .mobile-nav {
+                display: block;
+            }
+
+            .main {
+                margin-left: 0;
+                margin-top: 52px;
+            }
+
+            .hero {
+                padding: 56px 16px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.45rem;
+            }
+
+            .section {
+                padding: 48px 16px;
+            }
+
+            .hero .meta-row {
+                gap: 16px;
+            }
+
+            .phase-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        /* Print */
+        @media print {
+            .sidebar, .mobile-nav {
+                display: none !important;
+            }
+
+            .main {
+                margin-left: 0 !important;
+            }
+
+            .hero {
+                background: #fff !important;
+                color: var(--text) !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .hero h1, .hero .meta-item, .hero .meta-item strong {
+                color: var(--text) !important;
+            }
+
+            .section {
+                padding: 32px 0;
+                break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Sidebar -->
+<aside class="sidebar">
+    <div class="sidebar-brand">FieldFlow<br><span style="font-size: 0.75rem; font-weight: 400; color: var(--text-3);">Fundraising Plan</span></div>
+    <nav>
+        <a href="#overview" class="active">Overview</a>
+        <a href="#the-pitch">The Pitch</a>
+        <a href="#deck-status">Deck Status</a>
+        <a href="#investor-strategy">Investor Strategy</a>
+        <a href="#fundraising-mechanics">Fundraising Mechanics</a>
+        <a href="#demo-day-readiness">Demo Day Readiness</a>
+        <a href="#whats-next">What's Next</a>
+    </nav>
+</aside>
+
+<!-- Mobile nav -->
+<div class="mobile-nav">
+    <a href="#overview" class="active">Overview</a>
+    <a href="#the-pitch">The Pitch</a>
+    <a href="#deck-status">Deck Status</a>
+    <a href="#investor-strategy">Investor Strategy</a>
+    <a href="#fundraising-mechanics">Mechanics</a>
+    <a href="#demo-day-readiness">Demo Day</a>
+    <a href="#whats-next">What's Next</a>
+</div>
+
+<!-- Main content -->
+<div class="main">
+
+    <!-- 1. Overview (dark hero) -->
+    <section id="overview" class="hero" data-nav="overview">
+        <div class="section-inner">
+            <h1>FieldFlow</h1>
+            <p class="tagline">Mobile-first job management for trades businesses</p>
+            <div class="meta-row">
+                <span class="meta-item"><strong>Stage:</strong> Pre-seed</span>
+                <span class="meta-item"><strong>Raise:</strong> EUR 150K</span>
+                <span class="meta-item"><strong>Market:</strong> Western Balkans</span>
+            </div>
+            <p class="credit">Built with the <a href="https://github.com/TheGinjaNinja/gnv-fundraising-workshop">GNV Fundraising Workshop</a> by Ginger Ninja Ventures</p>
+        </div>
+    </section>
+
+    <!-- 2. The Pitch (white bg) -->
+    <section id="the-pitch" class="section section-white" data-nav="the-pitch">
+        <div class="section-inner">
+            <p class="eyebrow">The Pitch</p>
+            <h2>Pitch Narrative</h2>
+
+            <!-- Positioning -->
+            <div class="card mb-24">
+                <h3>Positioning</h3>
+                <p><strong>Archetype:</strong> Hair on Fire + Dominate a Subsegment</p>
+                <p><strong>Story Arc:</strong> Demo Day Arc</p>
+                <p>FieldFlow targets a burning, everyday problem for an underserved segment. Trades businesses in the Western Balkans are running on paper diaries and manual invoicing. The opportunity is to own this subsegment completely before expanding.</p>
+            </div>
+
+            <!-- Hook -->
+            <div class="card card-accent mb-24">
+                <p class="eyebrow mb-8">The Hook</p>
+                <p style="font-size: 1.1rem; font-weight: 500; color: var(--text); margin-bottom: 0;">"Last month, a plumber in Pristina lost EUR 2,400 because three jobs fell through the cracks of his paper diary."</p>
+            </div>
+
+            <!-- Pitch substance table -->
+            <h3 class="mb-16">Pitch Substance</h3>
+            <div class="card mb-24">
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Element</th>
+                                <th>Rating</th>
+                                <th>Notes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Hook</td>
+                                <td><span class="badge badge-strong">Strong</span></td>
+                                <td>Specific, quantified, relatable. Real customer story.</td>
+                            </tr>
+                            <tr>
+                                <td>Problem</td>
+                                <td><span class="badge badge-moderate">Moderate</span></td>
+                                <td>Clear pain. Could be sharper on the cost of the status quo across the full segment.</td>
+                            </tr>
+                            <tr>
+                                <td>Solution</td>
+                                <td><span class="badge badge-strong">Strong</span></td>
+                                <td>Live product in daily use. Covers scheduling, job tracking, invoicing.</td>
+                            </tr>
+                            <tr>
+                                <td>Market</td>
+                                <td><span class="badge badge-weak">Weak</span></td>
+                                <td>Western Balkans sizing needs credible sourcing. Regional data is thin.</td>
+                            </tr>
+                            <tr>
+                                <td>Product</td>
+                                <td><span class="badge badge-strong">Strong</span></td>
+                                <td>94% feature usage. All modules in daily use by paying customers.</td>
+                            </tr>
+                            <tr>
+                                <td>Business Model</td>
+                                <td><span class="badge badge-moderate">Moderate</span></td>
+                                <td>EUR 280/month per customer, clear SaaS model. Unit economics need more depth.</td>
+                            </tr>
+                            <tr>
+                                <td>Traction</td>
+                                <td><span class="badge badge-strong">Strong</span></td>
+                                <td>3 paying customers, EUR 840/month MRR, zero churn in 4 months.</td>
+                            </tr>
+                            <tr>
+                                <td>Team</td>
+                                <td><span class="badge badge-strong">Strong</span></td>
+                                <td>CEO ran a trades business for 12 years. CTO built logistics systems in Zurich.</td>
+                            </tr>
+                            <tr>
+                                <td>Vision</td>
+                                <td><span class="badge badge-assumption">Assumption</span></td>
+                                <td>Regional expansion is logical but unproven. Needs a clear path from Kosovo outward.</td>
+                            </tr>
+                            <tr>
+                                <td>The Ask</td>
+                                <td><span class="badge badge-moderate">Moderate</span></td>
+                                <td>EUR 150K is clear. Use of proceeds could be more specific on milestones.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Pitch Length Ladder -->
+            <h3 class="mb-16">Pitch Length Ladder</h3>
+            <div class="card">
+                <p class="eyebrow mb-8">1-Sentence Pitch</p>
+                <p style="color: var(--text); font-weight: 500; margin-bottom: 0;">"FieldFlow replaces paper diaries, spreadsheets, and manual invoicing with one mobile app for trades businesses in the Western Balkans."</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Deck Status (surface bg) -->
+    <section id="deck-status" class="section section-surface" data-nav="deck-status">
+        <div class="section-inner">
+            <p class="eyebrow">Deck Status</p>
+            <h2>Pitch Deck Versions</h2>
+
+            <!-- Presenting Deck -->
+            <div class="card mb-16">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 8px; margin-bottom: 12px;">
+                    <h3 style="margin-bottom: 0;">Presenting Deck</h3>
+                    <span class="badge badge-complete">Complete</span>
+                </div>
+                <p>12 slides. The deck you put on screen while you talk. Visual-first, minimal text, designed for stage delivery or investor meetings. Covers all 10 pitch elements from hook through to the ask and closing vision.</p>
+                <a href="pitch-deck.html" class="deck-link">View Presenting Deck</a>
+            </div>
+
+            <!-- Teaser Deck -->
+            <div class="card mb-16">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 8px; margin-bottom: 12px;">
+                    <h3 style="margin-bottom: 0;">Teaser Deck</h3>
+                    <span class="badge badge-not-started">Not Started</span>
+                </div>
+                <p>5 to 10 slides. This is the deck that gets you the meeting. It gets attached to cold emails and LinkedIn messages. It must not contain sensitive data, detailed financials, or anything you would not want forwarded to a stranger. Its only job is to make an investor curious enough to book a call.</p>
+                <h3 class="mt-16 mb-8" style="font-size: 0.95rem;">Slides to include:</h3>
+                <ol>
+                    <li><strong>Hook</strong> . The opening line that makes them stop scrolling.</li>
+                    <li><strong>Problem</strong> . What is broken and for whom.</li>
+                    <li><strong>Solution</strong> . What you built, in one visual.</li>
+                    <li><strong>Traction</strong> . The numbers that prove it is working.</li>
+                    <li><strong>Ask</strong> . How much you are raising and what it funds.</li>
+                </ol>
+            </div>
+
+            <!-- Reading Deck -->
+            <div class="card">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 8px; margin-bottom: 12px;">
+                    <h3 style="margin-bottom: 0;">Reading Deck</h3>
+                    <span class="badge badge-not-started">Not Started</span>
+                </div>
+                <p>15 to 20 slides. This is the deck that stands alone when forwarded. It is what gets sent after a meeting, or forwarded by an associate to a partner. Every claim has context. Every chart has a label. Every number has a source. A reader who has never met you should be able to understand your business, your traction, and your ask without anyone talking them through it.</p>
+                <p>This deck includes everything from the presenting deck plus detailed market analysis, competitive positioning, unit economics, team bios, financial projections, and appendix materials.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Investor Strategy (white bg) -->
+    <section id="investor-strategy" class="section section-white" data-nav="investor-strategy">
+        <div class="section-inner">
+            <p class="eyebrow">Investor Strategy</p>
+            <h2>Who to Raise From</h2>
+
+            <!-- Target investors -->
+            <div class="card mb-24">
+                <h3>Target Investor Groups</h3>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Priority</th>
+                                <th>Type</th>
+                                <th>Typical Cheque</th>
+                                <th>Why</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Primary</strong></td>
+                                <td>Diaspora angels</td>
+                                <td>EUR 10-25K</td>
+                                <td>Emotional connection to the region, understand the market, fast decisions</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Secondary</strong></td>
+                                <td>EU grants</td>
+                                <td>EUR 25-100K</td>
+                                <td>Non-dilutive, validates the business for future investors</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Tertiary</strong></td>
+                                <td>Accelerator networks</td>
+                                <td>EUR 10-50K</td>
+                                <td>Mentorship, investor introductions, programme credibility</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Stretch</strong></td>
+                                <td>Regional VCs</td>
+                                <td>EUR 50-150K</td>
+                                <td>Larger cheques but longer process, need warm intros</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Investor type comparison -->
+            <div class="card mb-24">
+                <h3>Investor Type Comparison</h3>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Factor</th>
+                                <th>Angels</th>
+                                <th>Grants</th>
+                                <th>VCs</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Decision speed</td>
+                                <td>Fast (1-3 weeks)</td>
+                                <td>Slow (2-6 months)</td>
+                                <td>Medium (4-8 weeks)</td>
+                            </tr>
+                            <tr>
+                                <td>Dilution</td>
+                                <td>Low</td>
+                                <td>None</td>
+                                <td>Higher</td>
+                            </tr>
+                            <tr>
+                                <td>Follow-on value</td>
+                                <td>Intros, mentorship</td>
+                                <td>Credibility signal</td>
+                                <td>Future rounds, board support</td>
+                            </tr>
+                            <tr>
+                                <td>Effort to close</td>
+                                <td>Moderate</td>
+                                <td>High (paperwork)</td>
+                                <td>High (due diligence)</td>
+                            </tr>
+                            <tr>
+                                <td>Best for FieldFlow</td>
+                                <td>First money in</td>
+                                <td>Stack alongside angels</td>
+                                <td>Lead investor if available</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Cold email template -->
+            <h3 class="mb-16">Cold Email Template</h3>
+            <div class="email-template"><div class="subject-line">Subject: Trades businesses losing 15-20% revenue to paper chaos</div>
+Hi [First name],
+
+[Why them: 1-2 sentences referencing their portfolio, thesis, or a specific investment. 15 minutes of research per email.]
+
+FieldFlow is a mobile app that replaces paper diaries, spreadsheets, and manual invoicing for trades businesses in the Western Balkans. Our 3 pilot customers cut invoicing time from 3 days to 30 seconds.
+
+Key signals:
+- CEO ran a trades business for 12 years, CTO built scheduling systems at a logistics company in Zurich
+- Live product in daily use by 3 paying customers
+- EUR 840/month MRR, zero churn in 4 months
+- 94% feature usage across all modules
+
+Raising EUR 150K pre-seed. Selected for [accelerator programme].
+
+Would you be open to a 30-minute call next week?
+
+Arben Krasniqi
+CEO, FieldFlow</div>
+
+            <!-- Email rules -->
+            <div class="card">
+                <h3>Cold Email Rules</h3>
+                <ul>
+                    <li><strong>Personal greeting.</strong> Use their first name. Never "Dear Sir/Madam" or "To whom it may concern."</li>
+                    <li><strong>"Why them" is non-negotiable.</strong> Reference their portfolio, thesis, or a specific investment they have made. This line proves you did the work. Generic emails get deleted.</li>
+                    <li><strong>Value prop in one sentence.</strong> What you do, for whom, and what result you deliver. No jargon.</li>
+                    <li><strong>Positive signals as bullets.</strong> Names and numbers only. Investor-relevant proof points, not a feature list.</li>
+                    <li><strong>Clear call to action.</strong> Ask for a specific next step. "30-minute call next week" is better than "would love to connect sometime."</li>
+                    <li><strong>Keep it short.</strong> The entire email should fit on a phone screen without scrolling. If you need more space, your teaser deck does the heavy lifting.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Fundraising Mechanics (surface bg) -->
+    <section id="fundraising-mechanics" class="section section-surface" data-nav="fundraising-mechanics">
+        <div class="section-inner">
+            <p class="eyebrow">Fundraising Mechanics</p>
+            <h2>The 4-Phase Process</h2>
+
+            <div class="phase-grid mb-32">
+                <div class="phase-card">
+                    <p class="phase-number">Phase 1</p>
+                    <h3>Prepare</h3>
+                    <span class="badge badge-in-progress">In Progress</span>
+                    <p class="mt-16" style="font-size: 0.85rem;">Pitch deck, fundraising plan, teaser deck, target investor list, data room basics.</p>
+                </div>
+                <div class="phase-card">
+                    <p class="phase-number">Phase 2</p>
+                    <h3>Build Network</h3>
+                    <span class="badge badge-not-started">Not Started</span>
+                    <p class="mt-16" style="font-size: 0.85rem;">Warm intros, cold outreach, accelerator applications, attend events in the ecosystem.</p>
+                </div>
+                <div class="phase-card">
+                    <p class="phase-number">Phase 3</p>
+                    <h3>Calendar Density</h3>
+                    <span class="badge badge-not-started">Not Started</span>
+                    <p class="mt-16" style="font-size: 0.85rem;">Compress meetings into 2-3 weeks. Create urgency. Multiple conversations running in parallel.</p>
+                </div>
+                <div class="phase-card">
+                    <p class="phase-number">Phase 4</p>
+                    <h3>Close</h3>
+                    <span class="badge badge-not-started">Not Started</span>
+                    <p class="mt-16" style="font-size: 0.85rem;">Term sheets, commitment letters, wire transfers. Follow up relentlessly. Close one, then use momentum to close the rest.</p>
+                </div>
+            </div>
+
+            <!-- Commitment Ladder -->
+            <h3 class="mb-16">Commitment Ladder</h3>
+            <div class="card">
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Level</th>
+                                <th>Signal</th>
+                                <th>Count</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Verbal interest</td>
+                                <td>"Sounds interesting, keep me posted"</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td>Meeting booked</td>
+                                <td>Agreed to a call or in-person meeting</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td>Follow-up requested</td>
+                                <td>Asked for deck, data room, or intro to co-founder</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td>Due diligence</td>
+                                <td>Asking detailed questions about financials, team, product</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td>Verbal commitment</td>
+                                <td>"I'm in for X amount"</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td>Signed commitment</td>
+                                <td>Signed term sheet or commitment letter</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td>Money wired</td>
+                                <td>Funds received in the bank</td>
+                                <td>0</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p style="font-size: 0.85rem; color: var(--text-3); margin-top: 12px; margin-bottom: 0;">No investor interactions tracked yet. Update this table as conversations progress. Remember: only signed commitments and wired money count as real progress.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Demo Day Readiness (white bg) -->
+    <section id="demo-day-readiness" class="section section-white" data-nav="demo-day-readiness">
+        <div class="section-inner">
+            <p class="eyebrow">Demo Day Readiness</p>
+            <h2>Demo Day Preparation</h2>
+
+            <!-- 3-minute timing -->
+            <h3 class="mb-16">3-Minute Timing Structure</h3>
+            <div class="card mb-24">
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Segment</th>
+                                <th>Duration</th>
+                                <th>Content</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Hook + Problem</td>
+                                <td>0:00 - 0:30</td>
+                                <td>Open with the plumber story. Establish the pain. Name the cost.</td>
+                            </tr>
+                            <tr>
+                                <td>Solution + Product</td>
+                                <td>0:30 - 1:15</td>
+                                <td>Show what FieldFlow does. Quick demo or key screenshots. "3 days to 30 seconds."</td>
+                            </tr>
+                            <tr>
+                                <td>Traction + Business Model</td>
+                                <td>1:15 - 1:50</td>
+                                <td>3 paying customers, EUR 840/month MRR, zero churn. SaaS pricing at EUR 280/month.</td>
+                            </tr>
+                            <tr>
+                                <td>Team</td>
+                                <td>1:50 - 2:15</td>
+                                <td>CEO: 12 years running trades businesses. CTO: logistics systems in Zurich. Domain + technical depth.</td>
+                            </tr>
+                            <tr>
+                                <td>Market + Vision</td>
+                                <td>2:15 - 2:40</td>
+                                <td>Western Balkans starting point. 50,000+ trades businesses in Kosovo alone. Regional expansion path.</td>
+                            </tr>
+                            <tr>
+                                <td>The Ask + Close</td>
+                                <td>2:40 - 3:00</td>
+                                <td>EUR 150K pre-seed. 12-month runway. Milestones: 25 paying customers, EUR 7K MRR. End with energy.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Hook with rationale -->
+            <h3 class="mb-16">Hook Selection</h3>
+            <div class="card card-accent mb-24">
+                <p style="font-size: 1.05rem; font-weight: 500; color: var(--text); margin-bottom: 12px;">"Last month, a plumber in Pristina lost EUR 2,400 because three jobs fell through the cracks of his paper diary."</p>
+                <p style="margin-bottom: 0;"><strong>Why this works:</strong> It is specific (one person, one city, one amount). It names a real consequence of a real problem. It is emotionally relatable. Every investor has hired a tradesperson and knows the chaos. It sets up the solution perfectly without giving it away.</p>
+            </div>
+
+            <!-- Q&A Prep -->
+            <h3 class="mb-16">Investor Q&amp;A Preparation</h3>
+            <div class="card mb-24">
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Question</th>
+                                <th>Prepared Answer</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>"Why the Western Balkans? Is this market big enough?"</td>
+                                <td>50,000+ registered trades businesses in Kosovo alone. The market is underserved by technology. We start here because we know it deeply, then expand regionally. The playbook is proven: Gojek started in Jakarta, Grab started in Malaysia.</td>
+                            </tr>
+                            <tr>
+                                <td>"3 customers is not exactly traction. How do you scale?"</td>
+                                <td>3 paying customers with zero churn and 94% feature usage is exceptional product-market fit signal at pre-seed. Our next milestone is 25 customers in 12 months through trade association partnerships and word of mouth within trades networks.</td>
+                            </tr>
+                            <tr>
+                                <td>"What stops a bigger player from copying this?"</td>
+                                <td>The global players (Jobber, ServiceTitan) do not localise for Balkan markets. They do not support local payment systems, local languages, or local invoicing requirements. Our moat is deep local knowledge and a product built specifically for this market.</td>
+                            </tr>
+                            <tr>
+                                <td>"Why is the CEO the right person for this?"</td>
+                                <td>Arben ran a trades business for 12 years. He has lived this problem. He knows the customers, the workflows, and the pain points because they were his pain points. That domain expertise is why our feature usage is at 94%.</td>
+                            </tr>
+                            <tr>
+                                <td>"EUR 150K seems small. Is that enough?"</td>
+                                <td>Burn rate in Kosovo is significantly lower than Western Europe. EUR 150K gives us 12 months of runway to reach 25 paying customers and EUR 7K MRR. That puts us in a strong position for a seed round with real traction data.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Day-of checklist -->
+            <h3 class="mb-16">Day-of Checklist</h3>
+            <div class="card">
+                <ul class="checklist">
+                    <li>Laptop fully charged, charger packed, backup device available</li>
+                    <li>Presentation loaded locally (not dependent on wifi). USB backup copy.</li>
+                    <li>Clicker tested and working. Know the keyboard shortcuts as a fallback.</li>
+                    <li>Water bottle at the podium. Arrive early enough to check the stage setup.</li>
+                    <li>Phone on silent. Notifications off. No surprises on screen.</li>
+                    <li>Practice the opening hook three times backstage. Get the first 10 seconds locked in.</li>
+                    <li>Have your one-pager and teaser deck ready to share immediately after the pitch. QR code on the closing slide.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. What's Next (surface bg) -->
+    <section id="whats-next" class="section section-surface" data-nav="whats-next">
+        <div class="section-inner">
+            <p class="eyebrow">What's Next</p>
+            <h2>Progress and Open Actions</h2>
+
+            <!-- Exercise status -->
+            <h3 class="mb-16">Exercise Status</h3>
+            <div class="card mb-24">
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Exercise</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Exercise 1: Pitch Narrative</td>
+                                <td><span class="badge badge-complete">Complete</span></td>
+                            </tr>
+                            <tr>
+                                <td>Exercise 2: Deck Building</td>
+                                <td><span class="badge badge-complete">Complete</span></td>
+                            </tr>
+                            <tr>
+                                <td>Exercise 3: Investor Readiness</td>
+                                <td><span class="badge badge-complete">Complete</span></td>
+                            </tr>
+                            <tr>
+                                <td>Exercise 4: Demo Day Prep</td>
+                                <td><span class="badge badge-complete">Complete</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Open actions -->
+            <h3 class="mb-16">Prioritised Open Actions</h3>
+            <div class="card">
+                <ol>
+                    <li class="mb-8"><strong>Build the teaser deck.</strong> 5 slides: hook, problem, solution, traction, ask. Attach to every cold email. No sensitive data.</li>
+                    <li class="mb-8"><strong>Source credible market data.</strong> The market slide is the weakest element. Find regional statistics on trades businesses in Kosovo and the Western Balkans. Eurostat, local chambers of commerce, World Bank data.</li>
+                    <li class="mb-8"><strong>Write 10 personalised cold emails.</strong> Use the template above. Spend 15 minutes researching each investor before writing the "why them" line.</li>
+                    <li class="mb-8"><strong>Build a target investor list of 30+ names.</strong> Prioritise diaspora angels and accelerator networks. Research who has invested in Balkan startups before.</li>
+                    <li class="mb-8"><strong>Sharpen the use of proceeds.</strong> Break down the EUR 150K into specific milestones with timelines. Investors want to see exactly what their money buys.</li>
+                    <li class="mb-8"><strong>Build the reading deck.</strong> 15 to 20 slides that stand alone. Add detailed market analysis, competitive positioning, unit economics, and team bios.</li>
+                    <li><strong>Practice the 3-minute pitch 20 times.</strong> Record yourself. Watch it back. Get the timing locked so the hook, traction, and ask all land at the right moments.</li>
+                </ol>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+<!-- Scroll-based active nav highlighting -->
+<script>
+(function() {
+    const sections = document.querySelectorAll('[data-nav]');
+    const sidebarLinks = document.querySelectorAll('.sidebar nav a');
+    const mobileLinks = document.querySelectorAll('.mobile-nav a');
+
+    function setActive(id) {
+        sidebarLinks.forEach(function(link) {
+            if (link.getAttribute('href') === '#' + id) {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
+            }
+        });
+        mobileLinks.forEach(function(link) {
+            if (link.getAttribute('href') === '#' + id) {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
+            }
+        });
+    }
+
+    function onScroll() {
+        var scrollPos = window.scrollY + 120;
+        var current = '';
+        sections.forEach(function(section) {
+            if (section.offsetTop <= scrollPos) {
+                current = section.getAttribute('data-nav');
+            }
+        });
+        if (current) {
+            setActive(current);
+        }
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+})();
+</script>
+
+</body>
+</html>

@@ -1,8 +1,8 @@
 # Exercise 2: Deck Building
 
-**Purpose:** Turn your evidence grid and story arc into a slide-by-slide pitch deck.
+**Purpose:** Turn your pitch narrative and story arc into a slide-by-slide pitch deck.
 
-Exercise 1 built the foundation: evidence for every element, positioning, and a narrative structure. Now you assemble that into slides. Each slide earns its place by having a clear narrative, credible proof points, and a reason an investor should care. If a slide cannot pass that test, it gets cut or merged.
+Exercise 1 built the foundation: substance for every element, positioning, and a narrative structure. Now you assemble that into slides. Each slide earns its place by having a clear narrative, credible proof points, and a reason an investor should care. If a slide cannot pass that test, it gets cut or merged.
 
 ---
 
@@ -167,7 +167,7 @@ Goal: stand on its own when forwarded. Self-explanatory. Every claim needs conte
 
 ---
 
-## Deck Destruction
+## Deck Review
 
 When analysing an existing deck, evaluate each slide against these seven questions.
 

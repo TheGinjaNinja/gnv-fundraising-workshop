@@ -1,18 +1,18 @@
 # Exercise 1: Pitch Narrative
 
-**Purpose:** Build the evidence foundation for your pitch, then shape it into a story people remember.
+**Purpose:** Build the substance and story for your pitch. Find the narrative that makes investors lean in.
 
-This is the most important exercise in the workshop. Most founders start with slides. You start with substance. The pitch narrative comes first because every other deliverable (the deck, the one-pager, the data room) draws from it.
+This is the most important exercise in the workshop. Most founders start with slides. You start with the story. The pitch narrative comes first because every other deliverable (the deck, the one-pager, the data room) draws from it.
 
 ---
 
-## Phase 1: The Evidence Grid
+## Phase 1: Pitch Substance
 
-Before any storytelling, get the substance right. For each of the 10 slides you will build, establish three things:
+For each of the 10 elements in your pitch, establish three things:
 
 - **Key Narrative:** The one thing this slide says. If the audience remembers nothing else from this slide, what is it?
-- **Proof Points:** Numbers, facts, quotes, data. The evidence that makes the narrative credible.
-- **So What?:** The impact. Why should the audience care? What changes because of this?
+- **Proof Points:** Numbers, facts, quotes, data. What backs up the narrative and makes it credible?
+- **So What?:** The impact. Why should an investor care? What changes because of this?
 
 ### Template
 
@@ -85,16 +85,16 @@ Use these to stress-test each element. Push the founder to go deeper on anything
 - What specific milestones will it fund?
 - How long does this give you, and what happens at the end of that runway?
 
-### Evidence Strength
+### Pitch Readiness
 
-Rate every proof point honestly. Investors will.
+Rate every proof point honestly. Investors will probe the weak ones.
 
-- **Strong:** Customer interviews with direct quotes, signed contracts, revenue data, repeat purchases, independent verification. This is evidence that would hold up in court.
-- **Moderate:** Pilot results, letters of intent, waitlist with active engagement, expert validation, partnerships in progress. Credible but not yet proven at scale.
-- **Weak:** Market research reports, analogies to other companies, "we believe" statements, advisor endorsements without skin in the game. Background context, not proof.
-- **Assumption:** No evidence. Founder's hypothesis only. Not necessarily wrong, but must be flagged and tested.
+- **Strong:** backed by real data you can cite on stage. Revenue, customers, contracts, measured outcomes, direct quotes.
+- **Moderate:** supported but not bulletproof. Pilot results, letters of intent, expert benchmarks. Good enough to present confidently, but expect follow-up questions.
+- **Weak:** based on secondary research, analogies, or estimates. Market reports, "we believe" statements. Prepare a confident answer for when investors challenge these.
+- **Assumption:** your hypothesis. Totally fine at pre-seed. Own it honestly rather than pretending it is proven.
 
-A pitch built on strong and moderate evidence lands differently from one built on weak evidence and assumptions. Know where you stand before you present.
+Know which parts of your pitch are strongest and where investors will push back. This helps you prepare, not paralyse you.
 
 ---
 

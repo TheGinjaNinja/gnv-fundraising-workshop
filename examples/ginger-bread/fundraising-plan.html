@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ginger Bread Fundraising Plan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #EA580D;
+            --primary-hover: #DC4A04;
+            --primary-pale: #FFF7ED;
+            --bg: #FFFFFF;
+            --surface-2: #F4F4F5;
+            --border: #E4E4E7;
+            --text: #0F172A;
+            --text-2: #64748B;
+            --text-3: #94A3B8;
+            --dark: #111827;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--bg);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 220px;
+            height: 100vh;
+            background: var(--dark);
+            padding: 32px 16px 24px;
+            overflow-y: auto;
+            z-index: 100;
+        }
+
+        .sidebar-brand {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 32px;
+            padding: 0 8px;
+        }
+
+        .sidebar nav a {
+            display: block;
+            padding: 8px 12px;
+            color: var(--text-3);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            border-radius: 6px;
+            margin-bottom: 2px;
+            transition: color 0.2s, background 0.2s;
+        }
+
+        .sidebar nav a:hover {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .sidebar nav a.active {
+            color: var(--primary);
+            background: rgba(234, 88, 13, 0.08);
+        }
+
+        /* Mobile nav */
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--dark);
+            z-index: 100;
+            padding: 12px 16px;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+
+        .mobile-nav a {
+            display: inline-block;
+            padding: 6px 12px;
+            color: var(--text-3);
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 500;
+            border-radius: 6px;
+        }
+
+        .mobile-nav a:hover {
+            color: #fff;
+        }
+
+        .mobile-nav a.active {
+            color: var(--primary);
+        }
+
+        /* Main content */
+        .main {
+            margin-left: 220px;
+        }
+
+        /* Sections */
+        .section {
+            padding: 64px 24px;
+        }
+
+        .section-inner {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .section-white {
+            background: var(--bg);
+        }
+
+        .section-surface {
+            background: var(--surface-2);
+        }
+
+        /* Hero / Overview */
+        .hero {
+            background: var(--dark);
+            padding: 80px 24px;
+        }
+
+        .hero .section-inner {
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            color: #fff;
+            margin-bottom: 12px;
+        }
+
+        .hero .tagline {
+            font-size: 1.15rem;
+            color: var(--text-3);
+            margin-bottom: 32px;
+            font-weight: 400;
+        }
+
+        .hero .meta-row {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            flex-wrap: wrap;
+            margin-bottom: 24px;
+        }
+
+        .hero .meta-item {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .hero .meta-item strong {
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .hero .credit {
+            font-size: 0.75rem;
+            color: var(--text-3);
+            margin-top: 8px;
+        }
+
+        .hero .credit a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        /* Typography */
+        h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            color: var(--text);
+            margin-bottom: 24px;
+        }
+
+        h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 12px;
+        }
+
+        .eyebrow {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        p {
+            margin-bottom: 16px;
+            color: var(--text-2);
+        }
+
+        /* Cards */
+        .card {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            padding: 24px;
+            margin-bottom: 16px;
+        }
+
+        .card-accent {
+            border-left: 4px solid var(--primary);
+        }
+
+        .card h3 {
+            margin-bottom: 8px;
+        }
+
+        .card p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Status badges */
+        .badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            vertical-align: middle;
+        }
+
+        .badge-complete {
+            color: #059669;
+            background: #ECFDF5;
+        }
+
+        .badge-in-progress {
+            color: #D97706;
+            background: #FFFBEB;
+        }
+
+        .badge-not-started {
+            color: #6B7280;
+            background: #F3F4F6;
+        }
+
+        /* Pitch readiness badges */
+        .badge-strong {
+            color: #059669;
+            background: #ECFDF5;
+        }
+
+        .badge-moderate {
+            color: #D97706;
+            background: #FFFBEB;
+        }
+
+        .badge-weak {
+            color: #EA580D;
+            background: #FFF7ED;
+        }
+
+        .badge-assumption {
+            color: #6B7280;
+            background: #F3F4F6;
+        }
+
+        /* Tables */
+        .table-wrap {
+            overflow-x: auto;
+            margin-bottom: 16px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+
+        th {
+            text-align: left;
+            padding: 10px 12px;
+            font-weight: 600;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-2);
+            border-bottom: 2px solid var(--border);
+        }
+
+        td {
+            padding: 10px 12px;
+            border-bottom: 1px solid var(--border);
+            color: var(--text);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Lists */
+        ul, ol {
+            margin-bottom: 16px;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 6px;
+            color: var(--text-2);
+        }
+
+        /* Email template */
+        .email-template {
+            background: #fafafa;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 16px;
+            font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+            font-size: 0.85rem;
+            line-height: 1.7;
+            white-space: pre-wrap;
+            color: var(--text);
+        }
+
+        .email-template .subject-line {
+            font-weight: 600;
+            margin-bottom: 16px;
+            font-family: 'Inter', sans-serif;
+            color: var(--text);
+        }
+
+        /* Phase cards */
+        .phase-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .phase-card {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: centre;
+        }
+
+        .phase-card .phase-number {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 4px;
+        }
+
+        .phase-card h3 {
+            font-size: 1rem;
+            margin-bottom: 8px;
+        }
+
+        /* Checklist */
+        .checklist {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .checklist li {
+            padding: 8px 0;
+            padding-left: 28px;
+            position: relative;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .checklist li:last-child {
+            border-bottom: none;
+        }
+
+        .checklist li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 12px;
+            width: 16px;
+            height: 16px;
+            border: 2px solid var(--border);
+            border-radius: 4px;
+        }
+
+        /* Deck link */
+        .deck-link {
+            display: inline-block;
+            padding: 8px 16px;
+            background: var(--primary);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+
+        .deck-link:hover {
+            background: var(--primary-hover);
+        }
+
+        /* Spacing helpers */
+        .mb-8 { margin-bottom: 8px; }
+        .mb-16 { margin-bottom: 16px; }
+        .mb-24 { margin-bottom: 24px; }
+        .mb-32 { margin-bottom: 32px; }
+        .mb-48 { margin-bottom: 48px; }
+        .mt-16 { margin-top: 16px; }
+        .mt-24 { margin-top: 24px; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .sidebar {
+                display: none;
+            }
+
+            .mobile-nav {
+                display: block;
+            }
+
+            .main {
+                margin-left: 0;
+                margin-top: 52px;
+            }
+
+            .hero {
+                padding: 56px 16px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.45rem;
+            }
+
+            .section {
+                padding: 48px 16px;
+            }
+
+            .hero .meta-row {
+                gap: 16px;
+            }
+
+            .phase-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        /* Print */
+        @media print {
+            .sidebar, .mobile-nav {
+                display: none !important;
+            }
+
+            .main {
+                margin-left: 0 !important;
+            }
+
+            .hero {
+                background: #fff !important;
+                color: var(--text) !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .hero h1, .hero .meta-item, .hero .meta-item strong {
+                color: var(--text) !important;
+            }
+
+            .section {
+                padding: 32px 0;
+                break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Sidebar -->
+<aside class="sidebar">
+    <div class="sidebar-brand">Ginger Bread<br><span style="font-size: 0.75rem; font-weight: 400; color: var(--text-3);">Fundraising Plan</span></div>
+    <nav>
+        <a href="#overview" class="active">Overview</a>
+        <a href="#the-pitch">The Pitch</a>
+        <a href="#deck-status">Deck Status</a>
+        <a href="#investor-strategy">Investor Strategy</a>
+        <a href="#fundraising-mechanics">Fundraising Mechanics</a>
+        <a href="#demo-day-readiness">Demo Day Readiness</a>
+        <a href="#whats-next">What's Next</a>
+    </nav>
+</aside>
+
+<!-- Mobile nav -->
+<div class="mobile-nav">
+    <a href="#overview" class="active">Overview</a>
+    <a href="#the-pitch">The Pitch</a>
+    <a href="#deck-status">Deck Status</a>
+    <a href="#investor-strategy">Investor Strategy</a>
+    <a href="#fundraising-mechanics">Mechanics</a>
+    <a href="#demo-day-readiness">Demo Day</a>
+    <a href="#whats-next">What's Next</a>
+</div>
+
+<!-- Main content -->
+<div class="main">
+
+    <!-- 1. Overview -->
+    <section id="overview" class="hero" data-nav="overview">
+        <div class="section-inner">
+            <h1>Ginger Bread</h1>
+            <p class="tagline">The AI CFO for B2B SaaS founders</p>
+            <div class="meta-row">
+                <span class="meta-item"><strong>Stage:</strong> Pre-seed</span>
+                <span class="meta-item"><strong>Raise:</strong> GBP 250K</span>
+                <span class="meta-item"><strong>Tax Relief:</strong> SEIS-eligible</span>
+                <span class="meta-item"><strong>Structure:</strong> Equity</span>
+            </div>
+            <p class="credit">Built with the <a href="https://github.com/TheGinjaNinja/gnv-fundraising-workshop">GNV Fundraising Workshop</a> by Ginger Ninja Ventures</p>
+        </div>
+    </section>
+
+    <!-- 2. The Pitch -->
+    <section id="the-pitch" class="section section-white" data-nav="the-pitch">
+        <div class="section-inner">
+            <p class="eyebrow">The Pitch</p>
+            <h2>Pitch Narrative</h2>
+
+            <div class="card mb-24">
+                <h3>Positioning</h3>
+                <p><strong>Archetype:</strong> Category Creation</p>
+                <p><strong>Story Arc:</strong> Strategic Narrative (Raskin)</p>
+                <p>AI CFO is a new category sitting between accounting tools (Xero, QuickBooks) and fractional CFOs (GBP 1,000 to GBP 3,000 per month). Accounting tools record what happened. A fractional CFO tells you what it means. Ginger Bread does both, instantly, at a fraction of the cost.</p>
+            </div>
+
+            <div class="card card-accent mb-24">
+                <p class="eyebrow" style="margin-bottom: 4px;">The Hook</p>
+                <p style="font-size: 1.15rem; font-weight: 500; font-style: italic; margin-bottom: 0;">"Every founder becomes their own CFO. None of them are qualified."</p>
+            </div>
+
+            <div class="card mb-24">
+                <h3>One-Sentence Pitch</h3>
+                <p style="margin-bottom: 0;">Ginger Bread is an AI CFO that gives B2B SaaS founders the financial clarity of a CFO from day one.</p>
+            </div>
+
+            <h3>Pitch Substance</h3>
+            <p style="color: var(--text-2);">How well each element of the pitch holds up under investor scrutiny.</p>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Element</th>
+                            <th>Readiness</th>
+                            <th>Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Hook</td><td><span class="badge badge-strong">Strong</span></td><td>Lived experience coaching 1,000+ founders. The problem is real and personal.</td></tr>
+                        <tr><td>Problem</td><td><span class="badge badge-strong">Strong</span></td><td>Universal founder pain, quantifiable. Every early-stage founder faces this.</td></tr>
+                        <tr><td>Solution</td><td><span class="badge badge-moderate">Moderate</span></td><td>Concept proven, product early. Live prototype with UK bank APIs, Xero, and QuickBooks.</td></tr>
+                        <tr><td>Market</td><td><span class="badge badge-moderate">Moderate</span></td><td>SOM GBP 9M (UK B2B SaaS), SAM GBP 100M (Europe), TAM $5-10B. SOM and SAM calculated, TAM estimated.</td></tr>
+                        <tr><td>Product</td><td><span class="badge badge-moderate">Moderate</span></td><td>Live prototype with real integrations. Not yet in customer hands.</td></tr>
+                        <tr><td>Business Model</td><td><span class="badge badge-weak">Weak</span></td><td>Pricing set (Survive GBP 149/mo, Control GBP 299/mo, Scale GBP 499/mo) but untested.</td></tr>
+                        <tr><td>Traction</td><td><span class="badge badge-weak">Weak</span></td><td>Distribution advantage through founder network. No revenue or paying customers yet.</td></tr>
+                        <tr><td>Team</td><td><span class="badge badge-strong">Strong</span></td><td>3x founder (2x fintech), EUR 10M+ raised, 14+ years, 1,000+ founders coached.</td></tr>
+                        <tr><td>Vision</td><td><span class="badge badge-assumption">Assumption</span></td><td>Tool to data to platform. Credible trajectory but unproven.</td></tr>
+                        <tr><td>The Ask</td><td><span class="badge badge-moderate">Moderate</span></td><td>Clear use of funds and specific milestones tied to the raise.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Deck Status -->
+    <section id="deck-status" class="section section-surface" data-nav="deck-status">
+        <div class="section-inner">
+            <p class="eyebrow">Deck Status</p>
+            <h2>Three Deck Versions</h2>
+
+            <div class="card mb-16">
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+                    <h3 style="margin-bottom: 0;">Presenting Deck</h3>
+                    <span class="badge badge-complete">Complete</span>
+                </div>
+                <p>13 slides. The visual-first deck for live pitching. The speaker carries the narrative, the slides carry the visual anchor. This is what goes on screen during an investor meeting or demo day.</p>
+                <p><a href="pitch-deck.html" class="deck-link">View pitch deck</a></p>
+            </div>
+
+            <div class="card mb-16">
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+                    <h3 style="margin-bottom: 0;">Teaser Deck</h3>
+                    <span class="badge badge-not-started">Not Started</span>
+                </div>
+                <p>5 to 10 slides. The deck that gets you the meeting. Attached to cold emails and intro requests. No sensitive data, no detailed financials. Just enough to make an investor want to learn more.</p>
+                <p style="margin-bottom: 4px;"><strong>Slides to include:</strong></p>
+                <ul>
+                    <li>Hook</li>
+                    <li>Problem</li>
+                    <li>Solution</li>
+                    <li>Traction</li>
+                    <li>Ask</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+                    <h3 style="margin-bottom: 0;">Reading Deck</h3>
+                    <span class="badge badge-not-started">Not Started</span>
+                </div>
+                <p>15 to 20 slides. The deck that stands alone when forwarded. Every claim has context, every number has a source. This is what gets sent after a meeting, or forwarded by an associate to a partner.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Investor Strategy -->
+    <section id="investor-strategy" class="section section-white" data-nav="investor-strategy">
+        <div class="section-inner">
+            <p class="eyebrow">Investor Strategy</p>
+            <h2>Who to Raise From</h2>
+
+            <div class="card mb-24">
+                <h3>Target Investor Groups</h3>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Priority</th>
+                                <th>Type</th>
+                                <th>Typical Cheque</th>
+                                <th>Why</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Primary</strong></td>
+                                <td>UK angels + SEIS funds</td>
+                                <td>GBP 5-100K</td>
+                                <td>SEIS 50% tax relief is the strongest closer at this stage</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Secondary</strong></td>
+                                <td>Fintech angels + syndicates</td>
+                                <td>GBP 25-150K</td>
+                                <td>Founder's 2x fintech track record gives instant credibility</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Tertiary</strong></td>
+                                <td>Fintech accelerators</td>
+                                <td>GBP 10-50K</td>
+                                <td>Capital plus structured support if direct fundraising is slow</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="card card-accent mb-24">
+                <h3>Distribution Advantage</h3>
+                <p><strong>1,000+ founders in the existing network.</strong> 20+ accelerator programmes delivered. This is both the GTM channel and the fundraising channel. Warm introductions into the investor community are already available.</p>
+                <p style="margin-bottom: 0;">The same network that drives customer acquisition also drives investor access. Founders who have been coached will vouch for the problem and the person solving it.</p>
+            </div>
+
+            <h3 class="mt-24">Cold Email Template</h3>
+            <p style="color: var(--text-2);">Based on OpenVC best practice. Personalise the first two lines for every recipient.</p>
+            <div class="email-template">Subject: Every founder becomes their own CFO. None of them are qualified.
+
+Hi [First name],
+
+[Why them: 1-2 sentences referencing their portfolio, thesis, or a
+specific investment. 15 minutes of research per email.]
+
+Ginger Bread is an AI CFO that gives B2B SaaS founders the financial
+clarity of a fractional CFO from day one. It connects to their bank,
+Xero, or QuickBooks and answers the questions that keep founders up
+at night.
+
+Key signals:
+- 3x founder (2x fintech), EUR 10M+ previously raised
+- Live prototype with UK bank APIs, Xero, and QuickBooks
+- 1,000+ founders in direct network across 20+ accelerator programmes
+- SEIS-eligible (50% income tax relief for investors)
+
+Raising GBP 250K pre-seed. 24 months runway. Default alive.
+
+Would you be open to a 30-minute call next week?
+
+Jamie Reynolds
+Founder, Ginger Bread</div>
+
+            <div class="card mt-16">
+                <h3>Email Rules</h3>
+                <ul style="margin-bottom: 0;">
+                    <li>Personal greeting. Never "Dear Sir/Madam."</li>
+                    <li>The "why them" lead is non-negotiable. 15 minutes of research per email. Reference their portfolio, thesis, a blog post, or a talk.</li>
+                    <li>Value proposition in one sentence. No features, no roadmap.</li>
+                    <li>Positive signals as bullets. Names and numbers, not "strong growth."</li>
+                    <li>Clear CTA. "Would you be open to a 30-minute call next week?"</li>
+                    <li>Attach the teaser deck (once built). Never attach the full presenting deck to a cold email.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Fundraising Mechanics -->
+    <section id="fundraising-mechanics" class="section section-surface" data-nav="fundraising-mechanics">
+        <div class="section-inner">
+            <p class="eyebrow">Fundraising Mechanics</p>
+            <h2>The Four Phases</h2>
+
+            <div class="phase-grid">
+                <div class="phase-card">
+                    <div class="phase-number">Phase 1</div>
+                    <h3>Prepare</h3>
+                    <span class="badge badge-in-progress">In Progress</span>
+                    <p style="color: var(--text-2); margin-top: 8px; margin-bottom: 0; font-size: 0.85rem;">Pitch deck built, narrative complete. Data room, investor list, and SEIS advance assurance still needed.</p>
+                </div>
+                <div class="phase-card">
+                    <div class="phase-number">Phase 2</div>
+                    <h3>Build Network</h3>
+                    <span class="badge badge-in-progress">In Progress</span>
+                    <p style="color: var(--text-2); margin-top: 8px; margin-bottom: 0; font-size: 0.85rem;">Existing founder network is a significant head start. Investor-specific outreach not yet started.</p>
+                </div>
+                <div class="phase-card">
+                    <div class="phase-number">Phase 3</div>
+                    <h3>Calendar Density</h3>
+                    <span class="badge badge-not-started">Not Started</span>
+                    <p style="color: var(--text-2); margin-top: 8px; margin-bottom: 0; font-size: 0.85rem;">Compress investor meetings into a tight window to create urgency and momentum.</p>
+                </div>
+                <div class="phase-card">
+                    <div class="phase-number">Phase 4</div>
+                    <h3>Close</h3>
+                    <span class="badge badge-not-started">Not Started</span>
+                    <p style="color: var(--text-2); margin-top: 8px; margin-bottom: 0; font-size: 0.85rem;">Convert interest to commitments. Manage terms, SEIS paperwork, and documentation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Demo Day Readiness -->
+    <section id="demo-day-readiness" class="section section-white" data-nav="demo-day-readiness">
+        <div class="section-inner">
+            <p class="eyebrow">Demo Day Readiness</p>
+            <h2>Demo Day Preparation</h2>
+
+            <div class="card">
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+                    <h3 style="margin-bottom: 0;">Status</h3>
+                    <span class="badge badge-not-started">Not Started</span>
+                </div>
+                <p style="margin-bottom: 0; color: var(--text-2);">Complete Exercise 4 to prepare timing structure, hook refinement, Q&amp;A prep, and delivery coaching.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. What's Next -->
+    <section id="whats-next" class="section section-surface" data-nav="whats-next">
+        <div class="section-inner">
+            <p class="eyebrow">What's Next</p>
+            <h2>Progress and Actions</h2>
+
+            <h3>Workshop Progress</h3>
+            <div class="card mb-24">
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Exercise</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>1. Pitch Narrative</td><td><span class="badge badge-complete">Complete</span></td></tr>
+                            <tr><td>2. Deck Building</td><td><span class="badge badge-in-progress">In Progress</span></td></tr>
+                            <tr><td>3. Investor Readiness</td><td><span class="badge badge-not-started">Not Started</span></td></tr>
+                            <tr><td>4. Demo Day Prep</td><td><span class="badge badge-not-started">Not Started</span></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <h3>Prioritised Actions</h3>
+            <ol>
+                <li>Complete Exercise 3 for investor readiness assessment and target list.</li>
+                <li>Apply for SEIS advance assurance.</li>
+                <li>Build investor list from existing founder network (warm intros).</li>
+                <li>Create teaser deck (5 slides).</li>
+                <li>Complete Exercise 4 for demo day prep.</li>
+                <li>Create reading deck.</li>
+                <li>Set up investor CRM or tracker.</li>
+            </ol>
+        </div>
+    </section>
+
+</div>
+
+<!-- Scroll-based active nav highlighting -->
+<script>
+(function() {
+    const sections = document.querySelectorAll('[data-nav]');
+    const sidebarLinks = document.querySelectorAll('.sidebar nav a');
+    const mobileLinks = document.querySelectorAll('.mobile-nav a');
+
+    function setActive(id) {
+        sidebarLinks.forEach(function(link) {
+            if (link.getAttribute('href') === '#' + id) {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
+            }
+        });
+        mobileLinks.forEach(function(link) {
+            if (link.getAttribute('href') === '#' + id) {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
+            }
+        });
+    }
+
+    function onScroll() {
+        var scrollPos = window.scrollY + 120;
+        var current = '';
+        sections.forEach(function(section) {
+            if (section.offsetTop <= scrollPos) {
+                current = section.getAttribute('data-nav');
+            }
+        });
+        if (current) {
+            setActive(current);
+        }
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+})();
+</script>
+
+</body>
+</html>

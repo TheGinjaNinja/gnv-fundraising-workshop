@@ -19,30 +19,59 @@
     body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--bg); line-height: 1.6; -webkit-font-smoothing: antialiased; }
     .container { max-width: 700px; margin: 0 auto; padding: 80px 24px; }
     .eyebrow { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--primary); margin-bottom: 8px; }
-    h1 { font-size: 2.5rem; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2; margin-bottom: 16px; }
-    .card { display: block; background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); text-decoration: none; color: inherit; transition: border-color 0.2s, box-shadow 0.2s; margin-bottom: 24px; }
-    .card:hover { border-color: rgba(234,88,13,0.3); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
-    .card h2 { font-size: 1.4rem; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 4px; }
-    .card .subtitle { color: var(--text-2); font-size: 0.95rem; margin-bottom: 8px; }
-    .card .meta { font-size: 0.85rem; color: var(--text-3); }
-    .note { font-size: 0.85rem; color: var(--text-2); margin-top: 8px; padding: 16px; background: var(--primary-pale); border-radius: 8px; }
+    h1 { font-size: 2.5rem; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2; margin-bottom: 8px; }
+    .intro { font-size: 1rem; color: var(--text-2); margin-bottom: 32px; }
+    .example-group { margin-bottom: 40px; }
+    .example-name { font-size: 1.4rem; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 4px; }
+    .example-desc { font-size: 0.95rem; color: var(--text-2); margin-bottom: 12px; }
+    .link-row { display: flex; gap: 12px; flex-wrap: wrap; }
+    .link-card { display: inline-block; background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 12px 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.06); text-decoration: none; color: inherit; transition: border-color 0.2s, box-shadow 0.2s; }
+    .link-card:hover { border-color: rgba(234,88,13,0.3); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+    .link-card .label { font-size: 0.85rem; font-weight: 600; color: var(--primary); }
+    .link-card .sub { font-size: 0.75rem; color: var(--text-3); margin-top: 2px; }
+    .divider { border: none; border-top: 1px solid var(--border); margin: 0; }
+    .note { font-size: 0.85rem; color: var(--text-2); padding: 16px; background: var(--primary-pale); border-radius: 8px; }
   </style>
 </head>
 <body>
   <div class="container">
     <div class="eyebrow">GNV Fundraising Workshop</div>
     <h1>Worked Examples</h1>
-    <a class="card" href="example-startup/presentation.html">
-      <h2>FieldFlow</h2>
-      <p class="subtitle">Mobile-first job management for trades businesses</p>
-      <p class="meta">Pre-seed, 3 pilot customers, EUR 150K raise</p>
-    </a>
-    <a class="card" href="ginger-bread/presentation.html">
-      <h2>Ginger Bread</h2>
-      <p class="subtitle">AI-powered CFO for SMEs</p>
-      <p class="meta">Pre-seed, AI coaching example with pitch deck and workshop summary</p>
-    </a>
-    <div class="note">These examples show what completed workshop outputs look like. Your presentation will be generated with your own branding and content.</div>
+    <p class="intro">Each example includes a pitch deck (the primary deliverable) and a fundraising plan covering investor strategy, readiness, and next steps.</p>
+
+    <div class="example-group">
+      <div class="example-name">FieldFlow</div>
+      <div class="example-desc">Mobile-first job management for trades businesses. Pre-seed, 3 paying customers, EUR 150K raise.</div>
+      <div class="link-row">
+        <a class="link-card" href="example-startup/pitch-deck.html">
+          <div class="label">Pitch Deck</div>
+          <div class="sub">12 slides, presenting deck</div>
+        </a>
+        <a class="link-card" href="example-startup/fundraising-plan.html">
+          <div class="label">Fundraising Plan</div>
+          <div class="sub">Strategy, readiness, next steps</div>
+        </a>
+      </div>
+    </div>
+
+    <hr class="divider" style="margin-bottom: 40px;">
+
+    <div class="example-group">
+      <div class="example-name">Ginger Bread</div>
+      <div class="example-desc">AI-powered CFO for B2B SaaS founders. Pre-seed, SEIS-eligible.</div>
+      <div class="link-row">
+        <a class="link-card" href="ginger-bread/pitch-deck.html">
+          <div class="label">Pitch Deck</div>
+          <div class="sub">13 slides, presenting deck</div>
+        </a>
+        <a class="link-card" href="ginger-bread/fundraising-plan.html">
+          <div class="label">Fundraising Plan</div>
+          <div class="sub">Strategy, readiness, next steps</div>
+        </a>
+      </div>
+    </div>
+
+    <div class="note">These examples show what completed workshop outputs look like. Your pitch deck and fundraising plan will be generated with your own branding and content.</div>
   </div>
 </body>
 </html>
